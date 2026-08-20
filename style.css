@@ -530,3 +530,62 @@ footer p {
         padding: 30px 20px;
     }
 }
+/* ==============================
+   WHY MOMENTUM ANALYTICS
+   ============================== */
+
+.why-us {
+    background: #ffffff;
+    padding: 100px 30px;
+}
+
+.why-us-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.why-card {
+    border-top: 3px solid #0878d1;
+    padding: 25px 10px 10px 0;
+}
+
+.why-number {
+    color: #0878d1;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+}
+
+.why-card h3 {
+    color: #153b5c;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.why-card p {
+    color: #68798b;
+    font-size: 15px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 850px) {
+
+    .why-us {
+        padding: 75px 20px;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+}
