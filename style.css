@@ -259,7 +259,12 @@ header {
     letter-spacing: -1px;
     color: #102a43;
 }
-
+.section-intro {
+    margin-top: 18px;
+    color: #68798b;
+    font-size: 17px;
+    max-width: 720px;
+}
 
 /* ==============================
    ABOUT
