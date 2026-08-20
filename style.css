@@ -51,7 +51,7 @@ header {
 }
 
 .logo img {
-    width: 190px;
+    width: 140px;
     height: auto;
     display: block;
 }
@@ -245,7 +245,7 @@ header {
 .section {
     max-width: 1200px;
     margin: auto;
-    padding: 100px 30px;
+    padding: 120px 30px;
 }
 
 .section-title {
@@ -536,7 +536,7 @@ footer p {
 
 .why-us {
     background: #ffffff;
-    padding: 100px 30px;
+    padding: 120px 30px;
 }
 
 .why-us-container {
@@ -596,6 +596,8 @@ footer p {
 
 .contact {
     text-align: center;
+   padding-top: 120px;
+   padding-bottom: 120px
 }
 
 .contact .section-title {
