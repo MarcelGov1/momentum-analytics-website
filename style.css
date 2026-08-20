@@ -45,13 +45,15 @@ header {
 }
 
 .logo {
-    font-size: 22px;
-    font-weight: 800;
-    color: #12395b;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
-.logo span {
-    color: #0878d1;
+.logo img {
+    width: 190px;
+    height: auto;
+    display: block;
 }
 
 .nav-links {
