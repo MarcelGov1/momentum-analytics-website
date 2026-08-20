@@ -36,7 +36,7 @@ header {
 .navbar {
     max-width: 1200px;
     margin: auto;
-    height: 75px;
+    height: 78px;
     padding: 0 30px;
 
     display: flex;
@@ -51,11 +51,9 @@ header {
 }
 
 .logo img {
-    width: 170px;
+    width: 150px;
     height: auto;
-   max-height: 60px;
-   object-fit: contain;
-    display: block;
+   display: block;
 }
 
 .nav-links {
