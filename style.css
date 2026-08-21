@@ -398,6 +398,32 @@ header {
     color: #075fa6;
 }
 
+/* ==============================
+   PORTFOLIO DISCLAIMER
+   ============================== */
+
+.portfolio-notice {
+    max-width: 900px;
+    margin: 35px auto 50px;
+    padding: 22px 25px;
+    background: #f5f9fd;
+    border-left: 4px solid #0878d1;
+    border-radius: 8px;
+}
+
+.portfolio-notice strong {
+    display: block;
+    color: #153b5c;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.portfolio-notice p {
+    color: #68798b;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+}
 
 /* ==============================
    CALL TO ACTION
