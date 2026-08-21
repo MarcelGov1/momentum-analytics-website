@@ -700,16 +700,22 @@ footer p {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 25px;
+    width: 100%;
     margin-top: 40px;
+    align-items: stretch;
 }
 
 .project-card {
+     width: 100%;
+    box-sizing: border-box;
     background: #ffffff;
     border: 1px solid #dfe9f2;
     border-radius: 14px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -719,7 +725,11 @@ footer p {
 }
 
 .project-card-content {
-    padding: 30px;
+     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .project-category {
@@ -764,7 +774,8 @@ footer p {
     color: #0878d1;
     font-weight: 700;
     text-decoration: none;
-    margin-top: 5px;
+    margin-top: auto;
+    padding-top: 20px;
 }
 
 .project-link:hover {
