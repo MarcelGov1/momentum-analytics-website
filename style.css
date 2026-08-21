@@ -979,3 +979,20 @@ footer p {
     }
 
 }
+   /* Consultation Button */
+.btn-primary {
+    display: inline-block;
+    padding: 14px 28px;
+    background: #1f3a5f;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #152a45;
+    transform: translateY(-2px);
+}
