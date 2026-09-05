@@ -1,1067 +1,1962 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>IP Address Location Lookup | Momentum Analytics</title>
 
-    <meta name="description"
-          content="Use the Momentum Analytics IP Address Location Lookup to find approximate geographic and network information associated with an IP address.">
+    <meta
+        name="description"
+        content="Momentum Analytics IP Address Location Lookup provides approximate IP geographic and network information."
+    >
 
-    <!-- Your existing website stylesheet -->
+    <!-- Existing Momentum Analytics stylesheet -->
     <link rel="stylesheet" href="Style.css">
 
-    <!-- Leaflet map -->
+    <!-- Leaflet -->
     <link
         rel="stylesheet"
         href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIINfQ3gY1eV7nW7Xx8E9K6lQf9Lk2M7J1Q="
         crossorigin=""
     >
 
+
     <style>
-        /* =========================================================
+
+        /* =====================================================
            IP LOCATION PAGE
-           These styles are scoped specifically to this page.
-           ========================================================= */
+           ===================================================== */
 
         .ip-page {
-            width: 100%;
+
             max-width: 1200px;
+
             margin: 0 auto;
+
             padding: 50px 20px 70px;
+
             box-sizing: border-box;
+
         }
+
 
         .ip-hero {
+
             text-align: center;
+
             margin-bottom: 40px;
+
         }
+
 
         .ip-hero h1 {
+
             margin-bottom: 15px;
+
         }
+
 
         .ip-hero p {
+
             max-width: 750px;
+
             margin: 0 auto;
+
             line-height: 1.7;
+
         }
+
 
         .ip-card {
+
             background: #ffffff;
+
             border-radius: 15px;
+
             padding: 30px;
+
             margin-bottom: 30px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+
             box-sizing: border-box;
+
         }
+
 
         .ip-card h2 {
+
             margin-top: 0;
-            margin-bottom: 10px;
+
         }
 
-        .ip-card-description {
-            margin-top: 0;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
 
-        .ip-search-container {
+        .ip-search {
+
             display: flex;
+
             gap: 12px;
+
             flex-wrap: wrap;
+
+            margin-top: 25px;
+
         }
+
 
         .ip-input {
+
             flex: 1;
-            min-width: 220px;
+
+            min-width: 230px;
+
             padding: 14px 16px;
+
             border: 1px solid #d6dce5;
+
             border-radius: 8px;
+
             font-size: 16px;
+
             font-family: inherit;
-            outline: none;
+
             box-sizing: border-box;
+
         }
+
 
         .ip-input:focus {
+
+            outline: none;
+
             border-color: #1e73be;
-            box-shadow: 0 0 0 3px rgba(30, 115, 190, 0.12);
+
+            box-shadow: 0 0 0 3px rgba(30,115,190,0.12);
+
         }
+
 
         .ip-button {
+
             border: none;
+
             padding: 14px 22px;
+
             border-radius: 8px;
+
             font-size: 16px;
+
             font-weight: 600;
+
             cursor: pointer;
+
             font-family: inherit;
-            transition: 0.2s ease;
+
         }
 
-        .ip-button-primary {
+
+        .ip-primary {
+
             background: #1e73be;
-            color: #ffffff;
+
+            color: white;
+
         }
 
-        .ip-button-primary:hover {
+
+        .ip-primary:hover {
+
             opacity: 0.9;
-            transform: translateY(-1px);
+
         }
 
-        .ip-button-secondary {
-            background: #eef1f5;
-            color: #333333;
+
+        .ip-secondary {
+
+            background: #edf0f4;
+
+            color: #333;
+
         }
 
-        .ip-button-secondary:hover {
-            background: #e2e6eb;
-        }
 
         .ip-status {
+
             display: none;
+
             margin-top: 20px;
-            padding: 14px 16px;
+
+            padding: 15px;
+
             border-radius: 8px;
+
             line-height: 1.5;
+
         }
+
 
         .ip-status.show {
+
             display: block;
+
         }
 
-        .ip-status.loading {
+
+        .ip-loading {
+
             background: #eef6ff;
+
             color: #155a91;
+
         }
 
-        .ip-status.error {
-            background: #fff0f0;
-            color: #9b2226;
-        }
 
-        .ip-status.success {
+        .ip-success {
+
             background: #effaf2;
+
             color: #26703b;
+
         }
+
+
+        .ip-error {
+
+            background: #fff0f0;
+
+            color: #9b2226;
+
+        }
+
+
+        /* =====================================================
+           MAIN RESULT
+           ===================================================== */
 
         .ip-results {
+
             display: none;
+
         }
+
 
         .ip-results.show {
+
             display: block;
+
         }
 
-        .ip-result-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-            margin-top: 25px;
-        }
 
-        .ip-result-item {
+        .ip-main-location {
+
+            text-align: center;
+
+            padding: 25px;
+
             background: #f7f9fc;
-            border-radius: 10px;
-            padding: 18px;
-            box-sizing: border-box;
+
+            border-radius: 12px;
+
+            margin: 25px 0;
+
         }
 
-        .ip-result-label {
-            display: block;
-            font-size: 13px;
+
+        .ip-main-location h3 {
+
+            margin: 0 0 8px;
+
+            font-size: 28px;
+
+        }
+
+
+        .ip-main-location p {
+
+            margin: 0;
+
+            opacity: 0.75;
+
+        }
+
+
+        .ip-confidence {
+
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            background: #e9f7ee;
+
+            color: #26703b;
+
+            font-size: 14px;
+
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 7px;
-            opacity: 0.65;
+
         }
 
-        .ip-result-value {
+
+        .ip-confidence.warning {
+
+            background: #fff4d6;
+
+            color: #805f00;
+
+        }
+
+
+        /* =====================================================
+           INFORMATION GRID
+           ===================================================== */
+
+        .ip-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, minmax(0,1fr));
+
+            gap: 18px;
+
+            margin-top: 25px;
+
+        }
+
+
+        .ip-info {
+
+            background: #f7f9fc;
+
+            padding: 18px;
+
+            border-radius: 10px;
+
+        }
+
+
+        .ip-label {
+
             display: block;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.5px;
+
+            opacity: 0.6;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .ip-value {
+
             font-size: 16px;
+
             font-weight: 500;
+
             word-break: break-word;
+
         }
 
-        .ip-map-wrapper {
-            margin-top: 30px;
+
+        /* =====================================================
+           PROVIDER COMPARISON
+           ===================================================== */
+
+        .ip-provider-section {
+
+            margin-top: 35px;
+
         }
 
-        .ip-map-wrapper h3 {
+
+        .ip-provider-section h3 {
+
             margin-bottom: 15px;
+
         }
+
+
+        .ip-provider-table-wrapper {
+
+            overflow-x: auto;
+
+        }
+
+
+        .ip-provider-table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 650px;
+
+        }
+
+
+        .ip-provider-table th,
+
+        .ip-provider-table td {
+
+            padding: 14px;
+
+            text-align: left;
+
+            border-bottom: 1px solid #e5e8ec;
+
+        }
+
+
+        .ip-provider-table th {
+
+            background: #f7f9fc;
+
+            font-weight: 700;
+
+        }
+
+
+        .provider-good {
+
+            color: #26703b;
+
+            font-weight: 600;
+
+        }
+
+
+        .provider-error {
+
+            color: #9b2226;
+
+        }
+
+
+        /* =====================================================
+           MAP
+           ===================================================== */
+
+        .ip-map {
+
+            margin-top: 35px;
+
+        }
+
 
         #ipMap {
+
             width: 100%;
-            height: 420px;
+
+            height: 430px;
+
             border-radius: 12px;
+
             overflow: hidden;
-            z-index: 1;
+
         }
+
+
+        /* =====================================================
+           WARNING
+           ===================================================== */
 
         .ip-warning {
-            background: #fff8e6;
-            border-left: 4px solid #e0a800;
-            padding: 18px 20px;
+
             margin-top: 30px;
+
+            padding: 20px;
+
+            background: #fff8e6;
+
+            border-left: 4px solid #e0a800;
+
             border-radius: 7px;
-            line-height: 1.6;
+
+            line-height: 1.7;
+
         }
+
 
         .ip-warning strong {
+
             display: block;
+
             margin-bottom: 5px;
+
         }
+
+
+        /* =====================================================
+           PRIVACY
+           ===================================================== */
 
         .ip-privacy {
+
             margin-top: 30px;
+
             padding: 20px;
+
             background: #f7f9fc;
+
             border-radius: 10px;
+
             line-height: 1.7;
+
             font-size: 14px;
+
         }
 
-        .ip-privacy h3 {
-            margin-top: 0;
-        }
 
-        .ip-example {
-            margin-top: 12px;
-            font-size: 14px;
-            opacity: 0.75;
-        }
-
-        .ip-coordinates {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-
-        .ip-coordinate {
-            background: #f7f9fc;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 14px;
-        }
+        /* =====================================================
+           MOBILE
+           ===================================================== */
 
         @media (max-width: 700px) {
 
             .ip-page {
+
                 padding: 35px 15px 50px;
+
             }
+
 
             .ip-card {
+
                 padding: 22px;
+
             }
 
-            .ip-result-grid {
-                grid-template-columns: 1fr;
-            }
 
-            .ip-search-container {
+            .ip-search {
+
                 flex-direction: column;
+
             }
+
 
             .ip-input,
+
             .ip-button {
+
                 width: 100%;
+
             }
 
-            #ipMap {
-                height: 320px;
+
+            .ip-grid {
+
+                grid-template-columns: 1fr;
+
             }
+
+
+            .ip-main-location h3 {
+
+                font-size: 23px;
+
+            }
+
+
+            #ipMap {
+
+                height: 320px;
+
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- =========================================================
-         HEADER
-         ========================================================= -->
 
-    <header>
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
 
-        <div class="ip-site-header">
+<header>
 
-            <a href="Index.html" aria-label="Momentum Analytics Home">
+    <div class="ip-site-header">
 
-                <img
-                    src="Image/Momentum-logo.jpg"
-                    alt="Momentum Analytics"
-                    style="max-width: 180px; height: auto;"
-                >
+        <a href="Index.html">
 
-            </a>
+            <img
+                src="Image/Momentum-logo.jpg"
+                alt="Momentum Analytics"
+                style="max-width:180px;height:auto;"
+            >
 
-            <nav aria-label="Main navigation">
+        </a>
 
-                <a href="Index.html">Home</a>
 
-                <a href="Index.html#services">Services</a>
+        <nav aria-label="Main navigation">
 
-                <a href="Index.html#projects">Projects</a>
+            <a href="Index.html">Home</a>
 
-                <a href="Index.html#testimonials">Testimonials</a>
+            <a href="Index.html#services">Services</a>
 
-                <a href="Index.html#contact">Contact</a>
+            <a href="Index.html#projects">Projects</a>
 
-            </nav>
+            <a href="Index.html#testimonials">Testimonials</a>
+
+            <a href="Index.html#contact">Contact</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN
+     ===================================================== -->
+
+<main class="ip-page">
+
+
+    <!-- HERO -->
+
+    <section class="ip-hero">
+
+        <h1>IP Address Location Lookup</h1>
+
+        <p>
+
+            Enter an IP address to view approximate geographic
+            and network information.
+
+        </p>
+
+    </section>
+
+
+    <!-- =================================================
+         SEARCH
+         ================================================= -->
+
+    <section class="ip-card">
+
+        <h2>Look Up an IP Address</h2>
+
+        <p>
+
+            Our lookup checks multiple public IP geolocation
+            sources and compares their results.
+
+        </p>
+
+
+        <div class="ip-search">
+
+            <input
+                type="text"
+                id="ipInput"
+                class="ip-input"
+                placeholder="Example: 41.144.35.49"
+                autocomplete="off"
+                spellcheck="false"
+            >
+
+
+            <button
+                id="lookupButton"
+                class="ip-button ip-primary"
+                type="button"
+            >
+
+                Look Up IP
+
+            </button>
+
+
+            <button
+                id="clearButton"
+                class="ip-button ip-secondary"
+                type="button"
+            >
+
+                Clear
+
+            </button>
 
         </div>
 
-    </header>
+
+        <div
+            id="statusMessage"
+            class="ip-status"
+        ></div>
+
+    </section>
 
 
-    <!-- =========================================================
-         MAIN CONTENT
-         ========================================================= -->
+    <!-- =================================================
+         RESULTS
+         ================================================= -->
 
-    <main class="ip-page">
+    <section
+        id="resultsSection"
+        class="ip-card ip-results"
+    >
 
-        <!-- HERO -->
+        <h2>IP Information</h2>
 
-        <section class="ip-hero">
 
-            <h1>IP Address Location Lookup</h1>
+        <!-- MAIN LOCATION -->
 
-            <p>
-                Enter an IP address below to view approximate geographic
-                and network information associated with it.
+        <div class="ip-main-location">
+
+            <h3 id="mainLocation">
+                —
+            </h3>
+
+            <p id="mainLocationDescription">
+                Approximate location
             </p>
 
-        </section>
 
+            <span
+                id="confidenceBadge"
+                class="ip-confidence"
+            >
 
-        <!-- SEARCH CARD -->
+                —
 
-        <section class="ip-card">
+            </span>
 
-            <h2>Look Up an IP Address</h2>
+        </div>
 
-            <p class="ip-card-description">
-                Enter an IPv4 or IPv6 address to retrieve publicly available
-                location and network information.
-            </p>
 
+        <!-- INFORMATION -->
 
-            <div class="ip-search-container">
+        <div class="ip-grid">
 
-                <input
-                    type="text"
-                    id="ipInput"
-                    class="ip-input"
-                    placeholder="Example: 8.8.8.8"
-                    autocomplete="off"
-                    spellcheck="false"
-                    aria-label="IP address"
-                >
 
-                <button
-                    type="button"
-                    id="lookupButton"
-                    class="ip-button ip-button-primary"
-                >
-                    Look Up IP
-                </button>
+            <div class="ip-info">
 
-                <button
-                    type="button"
-                    id="clearButton"
-                    class="ip-button ip-button-secondary"
-                >
-                    Clear
-                </button>
-
-            </div>
-
-
-            <div id="statusMessage" class="ip-status"></div>
-
-            <div class="ip-example">
-                Example IP: 8.8.8.8
-            </div>
-
-        </section>
-
-
-        <!-- RESULTS -->
-
-        <section
-            id="resultsSection"
-            class="ip-card ip-results"
-            aria-live="polite"
-        >
-
-            <h2>IP Information</h2>
-
-            <div class="ip-result-grid">
-
-                <div class="ip-result-item">
-
-                    <span class="ip-result-label">
-                        IP Address
-                    </span>
-
-                    <span
-                        id="resultIp"
-                        class="ip-result-value"
-                    >
-                        —
-                    </span>
-
-                </div>
-
-
-                <div class="ip-result-item">
-
-                    <span class="ip-result-label">
-                        Country
-                    </span>
-
-                    <span
-                        id="resultCountry"
-                        class="ip-result-value"
-                    >
-                        —
-                    </span>
-
-                </div>
-
-
-                <div class="ip-result-item">
-
-                    <span class="ip-result-label">
-                        Region / Province
-                    </span>
-
-                    <span
-                        id="resultRegion"
-                        class="ip-result-value"
-                    >
-                        —
-                    </span>
-
-                </div>
-
-
-                <div class="ip-result-item">
-
-                    <span class="ip-result-label">
-                        City
-                    </span>
-
-                    <span
-                        id="resultCity"
-                        class="ip-result-value"
-                    >
-                        —
-                    </span>
-
-                </div>
-
-
-                <div class="ip-result-item">
-
-                    <span class="ip-result-label">
-                        ISP / Network
-                    </span>
-
-                    <span
-                        id="resultISP"
-                        class="ip-result-value"
-                    >
-                        —
-                    </span>
-
-                </div>
-
-
-                <div class="ip-result-item">
-
-                    <span class="ip-result-label">
-                        Timezone
-                    </span>
-
-                    <span
-                        id="resultTimezone"
-                        class="ip-result-value"
-                    >
-                        —
-                    </span>
-
-                </div>
-
-
-                <div class="ip-result-item">
-
-                    <span class="ip-result-label">
-                        Latitude
-                    </span>
-
-                    <span
-                        id="resultLatitude"
-                        class="ip-result-value"
-                    >
-                        —
-                    </span>
-
-                </div>
-
-
-                <div class="ip-result-item">
-
-                    <span class="ip-result-label">
-                        Longitude
-                    </span>
-
-                    <span
-                        id="resultLongitude"
-                        class="ip-result-value"
-                    >
-                        —
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- COORDINATES -->
-
-            <div class="ip-coordinates">
-
-                <span class="ip-coordinate">
-                    Latitude:
-                    <strong id="coordinateLatitude">—</strong>
+                <span class="ip-label">
+                    IP Address
                 </span>
 
-                <span class="ip-coordinate">
-                    Longitude:
-                    <strong id="coordinateLongitude">—</strong>
+                <span
+                    id="resultIp"
+                    class="ip-value"
+                >
+                    —
                 </span>
 
             </div>
 
 
-            <!-- MAP -->
+            <div class="ip-info">
 
-            <div class="ip-map-wrapper">
+                <span class="ip-label">
+                    Country
+                </span>
 
-                <h3>Approximate Location</h3>
-
-                <div id="ipMap"></div>
-
-            </div>
-
-
-            <!-- WARNING -->
-
-            <div class="ip-warning">
-
-                <strong>Important:</strong>
-
-                IP geolocation provides an approximate location.
-                It does not reveal someone's exact physical address or
-                precise GPS location. Results can be affected by VPNs,
-                proxies, mobile networks, corporate networks, ISPs and
-                other routing infrastructure.
+                <span
+                    id="resultCountry"
+                    class="ip-value"
+                >
+                    —
+                </span>
 
             </div>
 
 
-            <!-- PRIVACY -->
+            <div class="ip-info">
 
-            <div class="ip-privacy">
+                <span class="ip-label">
+                    Region / Province
+                </span>
 
-                <h3>Privacy Notice</h3>
-
-                <p>
-                    This tool is intended for legitimate educational,
-                    cybersecurity awareness and network-information purposes.
-                    The IP address entered into this tool is sent to a
-                    third-party IP geolocation service to retrieve the
-                    displayed information.
-                </p>
-
-                <p>
-                    Do not use this tool to harass, threaten, stalk or
-                    otherwise target another person. An IP address should
-                    not be treated as proof of someone's exact physical
-                    location or identity.
-                </p>
+                <span
+                    id="resultRegion"
+                    class="ip-value"
+                >
+                    —
+                </span>
 
             </div>
 
-        </section>
 
-    </main>
+            <div class="ip-info">
+
+                <span class="ip-label">
+                    City
+                </span>
+
+                <span
+                    id="resultCity"
+                    class="ip-value"
+                >
+                    —
+                </span>
+
+            </div>
 
 
-    <!-- =========================================================
-         FOOTER
-         ========================================================= -->
+            <div class="ip-info">
 
-    <footer>
+                <span class="ip-label">
+                    ISP / Organisation
+                </span>
 
-        <div class="ip-site-footer">
+                <span
+                    id="resultISP"
+                    class="ip-value"
+                >
+                    —
+                </span>
+
+            </div>
+
+
+            <div class="ip-info">
+
+                <span class="ip-label">
+                    ASN
+                </span>
+
+                <span
+                    id="resultASN"
+                    class="ip-value"
+                >
+                    —
+                </span>
+
+            </div>
+
+
+            <div class="ip-info">
+
+                <span class="ip-label">
+                    Timezone
+                </span>
+
+                <span
+                    id="resultTimezone"
+                    class="ip-value"
+                >
+                    —
+                </span>
+
+            </div>
+
+
+            <div class="ip-info">
+
+                <span class="ip-label">
+                    Coordinates
+                </span>
+
+                <span
+                    id="resultCoordinates"
+                    class="ip-value"
+                >
+                    —
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PROVIDER COMPARISON
+             ================================================= -->
+
+        <div class="ip-provider-section">
+
+            <h3>Geolocation Provider Comparison</h3>
 
             <p>
-                <strong>Momentum Analytics</strong>
+
+                Different IP databases may assign different
+                locations to the same IP address. This comparison
+                shows what each provider reports.
+
+            </p>
+
+
+            <div class="ip-provider-table-wrapper">
+
+                <table class="ip-provider-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Provider
+                            </th>
+
+                            <th>
+                                City
+                            </th>
+
+                            <th>
+                                Region
+                            </th>
+
+                            <th>
+                                Country
+                            </th>
+
+                            <th>
+                                Coordinates
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="providerTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             MAP
+             ================================================= -->
+
+        <div class="ip-map">
+
+            <h3>Approximate Location on Map</h3>
+
+            <div id="ipMap"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             WARNING
+             ================================================= -->
+
+        <div class="ip-warning">
+
+            <strong>
+                Important: IP location is approximate.
+            </strong>
+
+            An IP address does not normally provide someone's
+            exact physical address or precise GPS position.
+            Results can be affected by Internet Service Providers,
+            mobile networks, VPNs, proxies, corporate networks,
+            routing infrastructure and changes in IP allocation.
+
+        </div>
+
+
+        <!-- =================================================
+             PRIVACY
+             ================================================= -->
+
+        <div class="ip-privacy">
+
+            <h3>Privacy Notice</h3>
+
+            <p>
+
+                When you perform a lookup, the IP address is sent
+                to external IP geolocation services so that location
+                and network information can be returned.
+
             </p>
 
             <p>
-                Data • Analytics • Business Intelligence
+
+                Momentum Analytics does not present this tool as an
+                exact tracking system. The results are intended for
+                educational, informational and cybersecurity-awareness
+                purposes.
+
             </p>
 
             <p>
-                © 2026 Momentum Analytics. All rights reserved.
+
+                Do not use IP information to harass, threaten, stalk
+                or target another person.
+
             </p>
 
         </div>
 
-    </footer>
+
+    </section>
 
 
-    <!-- =========================================================
-         LEAFLET MAP JAVASCRIPT
-         ========================================================= -->
-
-    <script
-        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin=""
-    ></script>
+</main>
 
 
-    <!-- =========================================================
-         IP LOOKUP JAVASCRIPT
-         ========================================================= -->
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
 
-    <script>
+<footer>
 
-        const ipInput = document.getElementById("ipInput");
-        const lookupButton = document.getElementById("lookupButton");
-        const clearButton = document.getElementById("clearButton");
+    <div class="ip-site-footer">
 
-        const statusMessage = document.getElementById("statusMessage");
-        const resultsSection = document.getElementById("resultsSection");
+        <p>
+            <strong>Momentum Analytics</strong>
+        </p>
 
-        const resultIp = document.getElementById("resultIp");
-        const resultCountry = document.getElementById("resultCountry");
-        const resultRegion = document.getElementById("resultRegion");
-        const resultCity = document.getElementById("resultCity");
-        const resultISP = document.getElementById("resultISP");
-        const resultTimezone = document.getElementById("resultTimezone");
-        const resultLatitude = document.getElementById("resultLatitude");
-        const resultLongitude = document.getElementById("resultLongitude");
+        <p>
+            Data • Analytics • Business Intelligence
+        </p>
 
-        const coordinateLatitude =
-            document.getElementById("coordinateLatitude");
+        <p>
+            © 2026 Momentum Analytics. All rights reserved.
+        </p>
 
-        const coordinateLongitude =
-            document.getElementById("coordinateLongitude");
+    </div>
 
-        let map = null;
-        let marker = null;
+</footer>
 
 
-        /*
-         * Validate IPv4 and IPv6 addresses.
-         */
+<!-- =====================================================
+     LEAFLET
+     ===================================================== -->
 
-        function isValidIP(ip) {
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    crossorigin=""
+></script>
 
-            const ipv4 =
-                /^(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}$/;
 
-            const ipv6 =
-                /^(([0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4}|::1|(([0-9A-Fa-f]{1,4}:){1,7}:)|(([0-9A-Fa-f]{1,4}:){1,6}:[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){1,5}(:[0-9A-Fa-f]{1,4}){1,2})|(([0-9A-Fa-f]{1,4}:){1,4}(:[0-9A-Fa-f]{1,4}){1,3})|(([0-9A-Fa-f]{1,4}:){1,3}(:[0-9A-Fa-f]{1,4}){1,4})|(([0-9A-Fa-f]{1,4}:){1,2}(:[0-9A-Fa-f]{1,4}){1,5})|[0-9A-Fa-f]{1,4}:((:[0-9A-Fa-f]{1,4}){1,6})|:((:[0-9A-Fa-f]{1,4}){1,7}|:))$/;
+<!-- =====================================================
+     IP LOOKUP
+     ===================================================== -->
 
-            return ipv4.test(ip) || ipv6.test(ip);
+<script>
+
+const ipInput =
+    document.getElementById("ipInput");
+
+const lookupButton =
+    document.getElementById("lookupButton");
+
+const clearButton =
+    document.getElementById("clearButton");
+
+const statusMessage =
+    document.getElementById("statusMessage");
+
+const resultsSection =
+    document.getElementById("resultsSection");
+
+const providerTable =
+    document.getElementById("providerTable");
+
+let map = null;
+
+let markers = [];
+
+
+
+/* =====================================================
+   IP VALIDATION
+   ===================================================== */
+
+function isValidIP(ip) {
+
+    const ipv4 =
+        /^(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}$/;
+
+
+    const ipv6 =
+        /^(([0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4}|::1|(([0-9A-Fa-f]{1,4}:){1,7}:)|(([0-9A-Fa-f]{1,4}:){1,6}:[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){1,5}(:[0-9A-Fa-f]{1,4}){1,2})|(([0-9A-Fa-f]{1,4}:){1,4}(:[0-9A-Fa-f]{1,4}){1,3})|(([0-9A-Fa-f]{1,4}:){1,3}(:[0-9A-Fa-f]{1,4}){1,4})|(([0-9A-Fa-f]{1,4}:){1,2}(:[0-9A-Fa-f]{1,4}){1,5})|[0-9A-Fa-f]{1,4}:((:[0-9A-Fa-f]{1,4}){1,6})|:((:[0-9A-Fa-f]{1,4}){1,7}|:))$/;
+
+
+    return ipv4.test(ip) || ipv6.test(ip);
+
+}
+
+
+
+/* =====================================================
+   STATUS
+   ===================================================== */
+
+function showStatus(message, type) {
+
+    statusMessage.textContent = message;
+
+    statusMessage.className =
+        "ip-status show " + type;
+
+}
+
+
+
+/* =====================================================
+   NORMALISE PROVIDER DATA
+   ===================================================== */
+
+function normaliseProvider(
+    provider,
+    data
+) {
+
+
+    let result = {
+
+        provider: provider,
+
+        city: "Unavailable",
+
+        region: "Unavailable",
+
+        country: "Unavailable",
+
+        latitude: null,
+
+        longitude: null,
+
+        timezone: "Unavailable",
+
+        isp: "Unavailable",
+
+        asn: "Unavailable"
+
+    };
+
+
+    /* =========================================
+       IPWHOIS
+       ========================================= */
+
+    if (provider === "IPWhois") {
+
+        result.city =
+            data.city || "Unavailable";
+
+        result.region =
+            data.region || "Unavailable";
+
+        result.country =
+            data.country || "Unavailable";
+
+        result.latitude =
+            Number(data.latitude);
+
+        result.longitude =
+            Number(data.longitude);
+
+        result.timezone =
+            data.timezone &&
+            data.timezone.id
+                ? data.timezone.id
+                : "Unavailable";
+
+        result.isp =
+            data.connection &&
+            data.connection.isp
+                ? data.connection.isp
+                : "Unavailable";
+
+        result.asn =
+            data.connection &&
+            data.connection.asn
+                ? data.connection.asn
+                : "Unavailable";
+
+    }
+
+
+    /* =========================================
+       IPAPI
+       ========================================= */
+
+    if (provider === "ipapi.co") {
+
+        result.city =
+            data.city || "Unavailable";
+
+        result.region =
+            data.region || "Unavailable";
+
+        result.country =
+            data.country_name || "Unavailable";
+
+        result.latitude =
+            Number(data.latitude);
+
+        result.longitude =
+            Number(data.longitude);
+
+        result.timezone =
+            data.timezone || "Unavailable";
+
+        result.isp =
+            data.org || "Unavailable";
+
+        result.asn =
+            data.asn || "Unavailable";
+
+    }
+
+
+    /* =========================================
+       IPINFO
+       ========================================= */
+
+    if (provider === "IPinfo") {
+
+        result.city =
+            data.city || "Unavailable";
+
+        result.region =
+            data.region || "Unavailable";
+
+        result.country =
+            data.country || "Unavailable";
+
+
+        if (data.loc) {
+
+            const coordinates =
+                data.loc.split(",");
+
+            result.latitude =
+                Number(coordinates[0]);
+
+            result.longitude =
+                Number(coordinates[1]);
+
         }
 
 
-        /*
-         * Display a status message.
-         */
+        result.timezone =
+            data.timezone || "Unavailable";
 
-        function showStatus(message, type) {
+        result.isp =
+            data.org || "Unavailable";
 
-            statusMessage.textContent = message;
+    }
 
-            statusMessage.className =
-                "ip-status show " + type;
+
+    return result;
+
+}
+
+
+
+/* =====================================================
+   FETCH PROVIDER
+   ===================================================== */
+
+async function fetchProvider(
+    name,
+    url
+) {
+
+    try {
+
+        const response =
+            await fetch(url);
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Provider returned an error"
+            );
+
         }
 
 
-        /*
-         * Clear status message.
-         */
-
-        function clearStatus() {
-
-            statusMessage.textContent = "";
-
-            statusMessage.className = "ip-status";
-
-        }
+        const data =
+            await response.json();
 
 
-        /*
-         * Reset results.
-         */
+        return normaliseProvider(
+            name,
+            data
+        );
 
-        function clearResults() {
+    }
 
-            resultsSection.classList.remove("show");
+    catch (error) {
 
-            resultIp.textContent = "—";
-            resultCountry.textContent = "—";
-            resultRegion.textContent = "—";
-            resultCity.textContent = "—";
-            resultISP.textContent = "—";
-            resultTimezone.textContent = "—";
-            resultLatitude.textContent = "—";
-            resultLongitude.textContent = "—";
+        return {
 
-            coordinateLatitude.textContent = "—";
-            coordinateLongitude.textContent = "—";
+            provider: name,
 
-            if (marker && map) {
+            city: "Lookup failed",
 
-                map.removeLayer(marker);
+            region: "—",
 
-                marker = null;
+            country: "—",
+
+            latitude: null,
+
+            longitude: null,
+
+            timezone: "—",
+
+            isp: "—",
+
+            asn: "—",
+
+            error: true
+
+        };
+
+    }
+
+}
+
+
+
+/* =====================================================
+   CREATE MAP
+   ===================================================== */
+
+function createMap(
+    latitude,
+    longitude,
+    city,
+    country
+) {
+
+
+    if (!Number.isFinite(latitude) ||
+        !Number.isFinite(longitude)) {
+
+        return;
+
+    }
+
+
+    if (!map) {
+
+        map =
+            L.map("ipMap");
+
+
+        L.tileLayer(
+            "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            {
+
+                maxZoom: 19,
+
+                attribution:
+                    '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'
 
             }
+        ).addTo(map);
 
-        }
+    }
 
 
-        /*
-         * Create the map.
-         */
+    map.setView(
+        [latitude, longitude],
+        10
+    );
 
-        function createMap(latitude, longitude, city, country) {
 
-            if (!map) {
+    markers.forEach(
+        marker => map.removeLayer(marker)
+    );
 
-                map = L.map("ipMap");
 
-                L.tileLayer(
-                    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                    {
-                        maxZoom: 19,
-                        attribution:
-                            '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'
-                    }
-                ).addTo(map);
+    markers = [];
 
-            }
 
-            map.setView(
-                [latitude, longitude],
-                10
+    const marker =
+        L.marker([
+            latitude,
+            longitude
+        ])
+        .addTo(map)
+        .bindPopup(
+            "<strong>Approximate Location</strong><br>" +
+            city +
+            ", " +
+            country
+        )
+        .openPopup();
+
+
+    markers.push(marker);
+
+
+    setTimeout(
+        () => map.invalidateSize(),
+        200
+    );
+
+}
+
+
+
+/* =====================================================
+   FIND CITY CONSENSUS
+   ===================================================== */
+
+function getCityConsensus(results) {
+
+
+    const validCities =
+        results
+            .map(result => result.city)
+            .filter(city =>
+                city &&
+                city !== "Unavailable" &&
+                city !== "Lookup failed"
             );
 
 
-            if (marker) {
+    if (validCities.length === 0) {
 
-                map.removeLayer(marker);
+        return {
 
-            }
+            city: "Location unavailable",
 
+            count: 0,
 
-            marker = L.marker(
-                [latitude, longitude]
-            )
-            .addTo(map)
-            .bindPopup(
-                "<strong>Approximate IP Location</strong><br>" +
-                city +
-                ", " +
-                country
-            )
-            .openPopup();
+            total: 0
+
+        };
+
+    }
 
 
-            /*
-             * Fix map rendering when the results card becomes visible.
-             */
+    const counts = {};
 
-            setTimeout(function () {
 
-                map.invalidateSize();
+    validCities.forEach(city => {
 
-            }, 200);
+        const key =
+            city.trim().toLowerCase();
+
+        counts[key] =
+            (counts[key] || 0) + 1;
+
+    });
+
+
+    let winningCity =
+        validCities[0];
+
+    let highest =
+        0;
+
+
+    Object.keys(counts).forEach(key => {
+
+        if (counts[key] > highest) {
+
+            highest =
+                counts[key];
+
+            winningCity =
+                validCities.find(
+                    city =>
+                        city.trim().toLowerCase()
+                        === key
+                );
 
         }
 
+    });
+
+
+    return {
+
+        city: winningCity,
+
+        count: highest,
+
+        total: validCities.length
+
+    };
+
+}
+
+
+
+/* =====================================================
+   DISPLAY PROVIDER TABLE
+   ===================================================== */
+
+function displayProviderTable(results) {
+
+
+    providerTable.innerHTML = "";
+
+
+    results.forEach(result => {
+
+
+        const row =
+            document.createElement("tr");
+
+
+        const coordinates =
+            Number.isFinite(result.latitude) &&
+            Number.isFinite(result.longitude)
+
+                ? result.latitude.toFixed(4)
+                  + ", "
+                  + result.longitude.toFixed(4)
+
+                : "Unavailable";
+
+
+        row.innerHTML = `
+
+            <td>
+                <strong>${result.provider}</strong>
+            </td>
+
+            <td class="${result.error ? "provider-error" : ""}">
+                ${result.city}
+            </td>
+
+            <td>
+                ${result.region}
+            </td>
+
+            <td>
+                ${result.country}
+            </td>
+
+            <td>
+                ${coordinates}
+            </td>
+
+        `;
+
+
+        providerTable.appendChild(row);
+
+    });
+
+}
+
+
+
+/* =====================================================
+   MAIN LOOKUP
+   ===================================================== */
+
+async function lookupIP() {
+
+
+    const ip =
+        ipInput.value.trim();
+
+
+    if (!ip) {
+
+        showStatus(
+            "Please enter an IP address.",
+            "ip-error"
+        );
+
+        return;
+
+    }
+
+
+    if (!isValidIP(ip)) {
+
+        showStatus(
+            "Please enter a valid IPv4 or IPv6 address.",
+            "ip-error"
+        );
+
+        return;
+
+    }
+
+
+    lookupButton.disabled = true;
+
+    lookupButton.textContent =
+        "Checking Providers...";
+
+
+    resultsSection.classList.remove("show");
+
+
+    showStatus(
+        "Checking multiple IP geolocation databases...",
+        "ip-loading"
+    );
+
+
+    try {
+
 
         /*
-         * Perform IP lookup.
+         * Three independent providers.
          */
 
-        async function lookupIP() {
+        const providerResults =
+            await Promise.all([
 
-            const ip = ipInput.value.trim();
+                fetchProvider(
+                    "IPWhois",
+                    "https://ipwho.is/"
+                    + encodeURIComponent(ip)
+                ),
 
+                fetchProvider(
+                    "ipapi.co",
+                    "https://ipapi.co/"
+                    + encodeURIComponent(ip)
+                    + "/json/"
+                ),
 
-            if (!ip) {
+                fetchProvider(
+                    "IPinfo",
+                    "https://ipinfo.io/"
+                    + encodeURIComponent(ip)
+                    + "/json"
+                )
 
-                showStatus(
-                    "Please enter an IP address.",
-                    "error"
-                );
-
-                return;
-
-            }
-
-
-            if (!isValidIP(ip)) {
-
-                showStatus(
-                    "Please enter a valid IPv4 or IPv6 address.",
-                    "error"
-                );
-
-                return;
-
-            }
+            ]);
 
 
-            clearResults();
-
-            showStatus(
-                "Looking up IP address...",
-                "loading"
+        const successfulResults =
+            providerResults.filter(
+                result => !result.error
             );
 
 
-            lookupButton.disabled = true;
+        if (successfulResults.length === 0) {
 
-            lookupButton.textContent = "Looking Up...";
-
-
-            try {
-
-                const response = await fetch(
-                    "https://ipwho.is/" +
-                    encodeURIComponent(ip)
-                );
-
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        "The IP lookup service returned an error."
-                    );
-
-                }
-
-
-                const data = await response.json();
-
-
-                if (!data.success) {
-
-                    throw new Error(
-                        data.message ||
-                        "Unable to retrieve information for this IP address."
-                    );
-
-                }
-
-
-                /*
-                 * Populate results.
-                 */
-
-                resultIp.textContent =
-                    data.ip || ip;
-
-                resultCountry.textContent =
-                    data.country || "Unavailable";
-
-                resultRegion.textContent =
-                    data.region || "Unavailable";
-
-                resultCity.textContent =
-                    data.city || "Unavailable";
-
-                resultISP.textContent =
-                    data.connection &&
-                    data.connection.isp
-                        ? data.connection.isp
-                        : "Unavailable";
-
-                resultTimezone.textContent =
-                    data.timezone &&
-                    data.timezone.id
-                        ? data.timezone.id
-                        : "Unavailable";
-
-
-                const latitude =
-                    Number(data.latitude);
-
-                const longitude =
-                    Number(data.longitude);
-
-
-                if (
-                    Number.isFinite(latitude) &&
-                    Number.isFinite(longitude)
-                ) {
-
-                    resultLatitude.textContent =
-                        latitude.toFixed(6);
-
-                    resultLongitude.textContent =
-                        longitude.toFixed(6);
-
-                    coordinateLatitude.textContent =
-                        latitude.toFixed(6);
-
-                    coordinateLongitude.textContent =
-                        longitude.toFixed(6);
-
-
-                    createMap(
-                        latitude,
-                        longitude,
-                        data.city || "Unknown city",
-                        data.country || "Unknown country"
-                    );
-
-                } else {
-
-                    resultLatitude.textContent =
-                        "Unavailable";
-
-                    resultLongitude.textContent =
-                        "Unavailable";
-
-                    coordinateLatitude.textContent =
-                        "Unavailable";
-
-                    coordinateLongitude.textContent =
-                        "Unavailable";
-
-                }
-
-
-                resultsSection.classList.add("show");
-
-
-                showStatus(
-                    "IP information successfully retrieved.",
-                    "success"
-                );
-
-
-                /*
-                 * Scroll to results.
-                 */
-
-                setTimeout(function () {
-
-                    resultsSection.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-
-                }, 100);
-
-
-            } catch (error) {
-
-                console.error(error);
-
-                showStatus(
-                    "Unable to look up this IP address. Please check your internet connection and try again.",
-                    "error"
-                );
-
-            } finally {
-
-                lookupButton.disabled = false;
-
-                lookupButton.textContent = "Look Up IP";
-
-            }
+            throw new Error(
+                "All geolocation providers failed."
+            );
 
         }
 
 
-        /*
-         * Clear everything.
-         */
+        /* =========================================
+           CONSENSUS
+           ========================================= */
 
-        function clearAll() {
+        const consensus =
+            getCityConsensus(
+                successfulResults
+            );
 
-            ipInput.value = "";
 
-            clearResults();
+        document.getElementById(
+            "resultIp"
+        ).textContent = ip;
 
-            clearStatus();
 
-            ipInput.focus();
+        document.getElementById(
+            "resultCity"
+        ).textContent =
+            consensus.city;
+
+
+        document.getElementById(
+            "resultCountry"
+        ).textContent =
+            successfulResults[0].country;
+
+
+        document.getElementById(
+            "resultRegion"
+        ).textContent =
+            successfulResults[0].region;
+
+
+        document.getElementById(
+            "resultISP"
+        ).textContent =
+            successfulResults[0].isp;
+
+
+        document.getElementById(
+            "resultASN"
+        ).textContent =
+            successfulResults[0].asn;
+
+
+        document.getElementById(
+            "resultTimezone"
+        ).textContent =
+            successfulResults[0].timezone;
+
+
+        /* =========================================
+           COORDINATES
+           ========================================= */
+
+        const locationResult =
+            successfulResults.find(
+                result =>
+                    Number.isFinite(result.latitude) &&
+                    Number.isFinite(result.longitude)
+            );
+
+
+        if (locationResult) {
+
+            document.getElementById(
+                "resultCoordinates"
+            ).textContent =
+
+                locationResult.latitude.toFixed(6)
+                + ", "
+                + locationResult.longitude.toFixed(6);
+
+
+            createMap(
+
+                locationResult.latitude,
+
+                locationResult.longitude,
+
+                consensus.city,
+
+                locationResult.country
+
+            );
 
         }
 
 
-        /*
-         * Button events.
-         */
+        /* =========================================
+           MAIN LOCATION DISPLAY
+           ========================================= */
 
-        lookupButton.addEventListener(
-            "click",
-            lookupIP
+        document.getElementById(
+            "mainLocation"
+        ).textContent =
+
+            consensus.city
+            + ", "
+            + successfulResults[0].country;
+
+
+        document.getElementById(
+            "mainLocationDescription"
+        ).textContent =
+
+            "Approximate location based on "
+            + successfulResults.length
+            + " available geolocation provider"
+            + (successfulResults.length === 1 ? "" : "s");
+
+
+        const confidenceBadge =
+            document.getElementById(
+                "confidenceBadge"
+            );
+
+
+        if (
+            consensus.count >= 2 &&
+            consensus.total >= 2
+        ) {
+
+            confidenceBadge.textContent =
+                "Multiple providers agree";
+
+            confidenceBadge.className =
+                "ip-confidence";
+
+        }
+
+        else {
+
+            confidenceBadge.textContent =
+                "Providers disagree — location is approximate";
+
+            confidenceBadge.className =
+                "ip-confidence warning";
+
+        }
+
+
+        /* =========================================
+           PROVIDER TABLE
+           ========================================= */
+
+        displayProviderTable(
+            providerResults
         );
 
 
-        clearButton.addEventListener(
-            "click",
-            clearAll
+        /* =========================================
+           SHOW RESULTS
+           ========================================= */
+
+        resultsSection.classList.add(
+            "show"
         );
 
 
-        /*
-         * Allow Enter key to perform lookup.
-         */
+        showStatus(
 
-        ipInput.addEventListener(
-            "keydown",
-            function(event) {
+            "Lookup complete. Results from multiple providers are shown below.",
 
-                if (event.key === "Enter") {
+            "ip-success"
 
-                    lookupIP();
-
-                }
-
-            }
         );
 
-    </script>
+
+        setTimeout(() => {
+
+            resultsSection.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "start"
+
+            });
+
+        }, 100);
 
 
-    <!-- =========================================================
-         OPTIONAL EXISTING WEBSITE SCRIPT
-         ========================================================= -->
+    }
 
-    <script src="Script.js"></script>
+    catch (error) {
+
+        console.error(error);
+
+
+        showStatus(
+
+            "The IP lookup could not be completed. Please try again.",
+
+            "ip-error"
+
+        );
+
+    }
+
+
+    finally {
+
+        lookupButton.disabled = false;
+
+        lookupButton.textContent =
+            "Look Up IP";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   CLEAR
+   ===================================================== */
+
+function clearAll() {
+
+
+    ipInput.value = "";
+
+
+    resultsSection.classList.remove(
+        "show"
+    );
+
+
+    providerTable.innerHTML = "";
+
+
+    statusMessage.textContent = "";
+
+    statusMessage.className =
+        "ip-status";
+
+
+    if (markers.length && map) {
+
+        markers.forEach(
+            marker =>
+                map.removeLayer(marker)
+        );
+
+        markers = [];
+
+    }
+
+
+    ipInput.focus();
+
+}
+
+
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+
+lookupButton.addEventListener(
+    "click",
+    lookupIP
+);
+
+
+clearButton.addEventListener(
+    "click",
+    clearAll
+);
+
+
+/* =====================================================
+   ENTER KEY
+   ===================================================== */
+
+ipInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            lookupIP();
+
+        }
+
+    }
+);
+
+</script>
+
+
+<!-- Existing website JavaScript -->
+
+<script src="Script.js"></script>
+
 
 </body>
+
 </html>
