@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IP Address Location Lookup | Momentum Analytics</title>
+
+    <meta name="description"
+          content="Use the Momentum Analytics IP Address Location Lookup to find approximate geographic and network information associated with an IP address.">
+
+    <!-- Your existing website stylesheet -->
+    <link rel="stylesheet" href="Style.css">
+
+    <!-- Leaflet map -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIINfQ3gY1eV7nW7Xx8E9K6lQf9Lk2M7J1Q="
+        crossorigin=""
+    >
+
+    <style>
+        /* =========================================================
+           IP LOCATION PAGE
+           These styles are scoped specifically to this page.
+           ========================================================= */
+
+        .ip-page {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px 70px;
+            box-sizing: border-box;
+        }
+
+        .ip-hero {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .ip-hero h1 {
+            margin-bottom: 15px;
+        }
+
+        .ip-hero p {
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .ip-card {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box;
+        }
+
+        .ip-card h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .ip-card-description {
+            margin-top: 0;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .ip-search-container {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .ip-input {
+            flex: 1;
+            min-width: 220px;
+            padding: 14px 16px;
+            border: 1px solid #d6dce5;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .ip-input:focus {
+            border-color: #1e73be;
+            box-shadow: 0 0 0 3px rgba(30, 115, 190, 0.12);
+        }
+
+        .ip-button {
+            border: none;
+            padding: 14px 22px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: 0.2s ease;
+        }
+
+        .ip-button-primary {
+            background: #1e73be;
+            color: #ffffff;
+        }
+
+        .ip-button-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .ip-button-secondary {
+            background: #eef1f5;
+            color: #333333;
+        }
+
+        .ip-button-secondary:hover {
+            background: #e2e6eb;
+        }
+
+        .ip-status {
+            display: none;
+            margin-top: 20px;
+            padding: 14px 16px;
+            border-radius: 8px;
+            line-height: 1.5;
+        }
+
+        .ip-status.show {
+            display: block;
+        }
+
+        .ip-status.loading {
+            background: #eef6ff;
+            color: #155a91;
+        }
+
+        .ip-status.error {
+            background: #fff0f0;
+            color: #9b2226;
+        }
+
+        .ip-status.success {
+            background: #effaf2;
+            color: #26703b;
+        }
+
+        .ip-results {
+            display: none;
+        }
+
+        .ip-results.show {
+            display: block;
+        }
+
+        .ip-result-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .ip-result-item {
+            background: #f7f9fc;
+            border-radius: 10px;
+            padding: 18px;
+            box-sizing: border-box;
+        }
+
+        .ip-result-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 7px;
+            opacity: 0.65;
+        }
+
+        .ip-result-value {
+            display: block;
+            font-size: 16px;
+            font-weight: 500;
+            word-break: break-word;
+        }
+
+        .ip-map-wrapper {
+            margin-top: 30px;
+        }
+
+        .ip-map-wrapper h3 {
+            margin-bottom: 15px;
+        }
+
+        #ipMap {
+            width: 100%;
+            height: 420px;
+            border-radius: 12px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .ip-warning {
+            background: #fff8e6;
+            border-left: 4px solid #e0a800;
+            padding: 18px 20px;
+            margin-top: 30px;
+            border-radius: 7px;
+            line-height: 1.6;
+        }
+
+        .ip-warning strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .ip-privacy {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f7f9fc;
+            border-radius: 10px;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .ip-privacy h3 {
+            margin-top: 0;
+        }
+
+        .ip-example {
+            margin-top: 12px;
+            font-size: 14px;
+            opacity: 0.75;
+        }
+
+        .ip-coordinates {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .ip-coordinate {
+            background: #f7f9fc;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 700px) {
+
+            .ip-page {
+                padding: 35px 15px 50px;
+            }
+
+            .ip-card {
+                padding: 22px;
+            }
+
+            .ip-result-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ip-search-container {
+                flex-direction: column;
+            }
+
+            .ip-input,
+            .ip-button {
+                width: 100%;
+            }
+
+            #ipMap {
+                height: 320px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
+
+    <header>
+
+        <div class="ip-site-header">
+
+            <a href="Index.html" aria-label="Momentum Analytics Home">
+
+                <img
+                    src="Image/Momentum-logo.jpg"
+                    alt="Momentum Analytics"
+                    style="max-width: 180px; height: auto;"
+                >
+
+            </a>
+
+            <nav aria-label="Main navigation">
+
+                <a href="Index.html">Home</a>
+
+                <a href="Index.html#services">Services</a>
+
+                <a href="Index.html#projects">Projects</a>
+
+                <a href="Index.html#testimonials">Testimonials</a>
+
+                <a href="Index.html#contact">Contact</a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         MAIN CONTENT
+         ========================================================= -->
+
+    <main class="ip-page">
+
+        <!-- HERO -->
+
+        <section class="ip-hero">
+
+            <h1>IP Address Location Lookup</h1>
+
+            <p>
+                Enter an IP address below to view approximate geographic
+                and network information associated with it.
+            </p>
+
+        </section>
+
+
+        <!-- SEARCH CARD -->
+
+        <section class="ip-card">
+
+            <h2>Look Up an IP Address</h2>
+
+            <p class="ip-card-description">
+                Enter an IPv4 or IPv6 address to retrieve publicly available
+                location and network information.
+            </p>
+
+
+            <div class="ip-search-container">
+
+                <input
+                    type="text"
+                    id="ipInput"
+                    class="ip-input"
+                    placeholder="Example: 8.8.8.8"
+                    autocomplete="off"
+                    spellcheck="false"
+                    aria-label="IP address"
+                >
+
+                <button
+                    type="button"
+                    id="lookupButton"
+                    class="ip-button ip-button-primary"
+                >
+                    Look Up IP
+                </button>
+
+                <button
+                    type="button"
+                    id="clearButton"
+                    class="ip-button ip-button-secondary"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+
+            <div id="statusMessage" class="ip-status"></div>
+
+            <div class="ip-example">
+                Example IP: 8.8.8.8
+            </div>
+
+        </section>
+
+
+        <!-- RESULTS -->
+
+        <section
+            id="resultsSection"
+            class="ip-card ip-results"
+            aria-live="polite"
+        >
+
+            <h2>IP Information</h2>
+
+            <div class="ip-result-grid">
+
+                <div class="ip-result-item">
+
+                    <span class="ip-result-label">
+                        IP Address
+                    </span>
+
+                    <span
+                        id="resultIp"
+                        class="ip-result-value"
+                    >
+                        —
+                    </span>
+
+                </div>
+
+
+                <div class="ip-result-item">
+
+                    <span class="ip-result-label">
+                        Country
+                    </span>
+
+                    <span
+                        id="resultCountry"
+                        class="ip-result-value"
+                    >
+                        —
+                    </span>
+
+                </div>
+
+
+                <div class="ip-result-item">
+
+                    <span class="ip-result-label">
+                        Region / Province
+                    </span>
+
+                    <span
+                        id="resultRegion"
+                        class="ip-result-value"
+                    >
+                        —
+                    </span>
+
+                </div>
+
+
+                <div class="ip-result-item">
+
+                    <span class="ip-result-label">
+                        City
+                    </span>
+
+                    <span
+                        id="resultCity"
+                        class="ip-result-value"
+                    >
+                        —
+                    </span>
+
+                </div>
+
+
+                <div class="ip-result-item">
+
+                    <span class="ip-result-label">
+                        ISP / Network
+                    </span>
+
+                    <span
+                        id="resultISP"
+                        class="ip-result-value"
+                    >
+                        —
+                    </span>
+
+                </div>
+
+
+                <div class="ip-result-item">
+
+                    <span class="ip-result-label">
+                        Timezone
+                    </span>
+
+                    <span
+                        id="resultTimezone"
+                        class="ip-result-value"
+                    >
+                        —
+                    </span>
+
+                </div>
+
+
+                <div class="ip-result-item">
+
+                    <span class="ip-result-label">
+                        Latitude
+                    </span>
+
+                    <span
+                        id="resultLatitude"
+                        class="ip-result-value"
+                    >
+                        —
+                    </span>
+
+                </div>
+
+
+                <div class="ip-result-item">
+
+                    <span class="ip-result-label">
+                        Longitude
+                    </span>
+
+                    <span
+                        id="resultLongitude"
+                        class="ip-result-value"
+                    >
+                        —
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- COORDINATES -->
+
+            <div class="ip-coordinates">
+
+                <span class="ip-coordinate">
+                    Latitude:
+                    <strong id="coordinateLatitude">—</strong>
+                </span>
+
+                <span class="ip-coordinate">
+                    Longitude:
+                    <strong id="coordinateLongitude">—</strong>
+                </span>
+
+            </div>
+
+
+            <!-- MAP -->
+
+            <div class="ip-map-wrapper">
+
+                <h3>Approximate Location</h3>
+
+                <div id="ipMap"></div>
+
+            </div>
+
+
+            <!-- WARNING -->
+
+            <div class="ip-warning">
+
+                <strong>Important:</strong>
+
+                IP geolocation provides an approximate location.
+                It does not reveal someone's exact physical address or
+                precise GPS location. Results can be affected by VPNs,
+                proxies, mobile networks, corporate networks, ISPs and
+                other routing infrastructure.
+
+            </div>
+
+
+            <!-- PRIVACY -->
+
+            <div class="ip-privacy">
+
+                <h3>Privacy Notice</h3>
+
+                <p>
+                    This tool is intended for legitimate educational,
+                    cybersecurity awareness and network-information purposes.
+                    The IP address entered into this tool is sent to a
+                    third-party IP geolocation service to retrieve the
+                    displayed information.
+                </p>
+
+                <p>
+                    Do not use this tool to harass, threaten, stalk or
+                    otherwise target another person. An IP address should
+                    not be treated as proof of someone's exact physical
+                    location or identity.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer>
+
+        <div class="ip-site-footer">
+
+            <p>
+                <strong>Momentum Analytics</strong>
+            </p>
+
+            <p>
+                Data • Analytics • Business Intelligence
+            </p>
+
+            <p>
+                © 2026 Momentum Analytics. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         LEAFLET MAP JAVASCRIPT
+         ========================================================= -->
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""
+    ></script>
+
+
+    <!-- =========================================================
+         IP LOOKUP JAVASCRIPT
+         ========================================================= -->
+
+    <script>
+
+        const ipInput = document.getElementById("ipInput");
+        const lookupButton = document.getElementById("lookupButton");
+        const clearButton = document.getElementById("clearButton");
+
+        const statusMessage = document.getElementById("statusMessage");
+        const resultsSection = document.getElementById("resultsSection");
+
+        const resultIp = document.getElementById("resultIp");
+        const resultCountry = document.getElementById("resultCountry");
+        const resultRegion = document.getElementById("resultRegion");
+        const resultCity = document.getElementById("resultCity");
+        const resultISP = document.getElementById("resultISP");
+        const resultTimezone = document.getElementById("resultTimezone");
+        const resultLatitude = document.getElementById("resultLatitude");
+        const resultLongitude = document.getElementById("resultLongitude");
+
+        const coordinateLatitude =
+            document.getElementById("coordinateLatitude");
+
+        const coordinateLongitude =
+            document.getElementById("coordinateLongitude");
+
+        let map = null;
+        let marker = null;
+
+
+        /*
+         * Validate IPv4 and IPv6 addresses.
+         */
+
+        function isValidIP(ip) {
+
+            const ipv4 =
+                /^(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}$/;
+
+            const ipv6 =
+                /^(([0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4}|::1|(([0-9A-Fa-f]{1,4}:){1,7}:)|(([0-9A-Fa-f]{1,4}:){1,6}:[0-9A-Fa-f]{1,4})|(([0-9A-Fa-f]{1,4}:){1,5}(:[0-9A-Fa-f]{1,4}){1,2})|(([0-9A-Fa-f]{1,4}:){1,4}(:[0-9A-Fa-f]{1,4}){1,3})|(([0-9A-Fa-f]{1,4}:){1,3}(:[0-9A-Fa-f]{1,4}){1,4})|(([0-9A-Fa-f]{1,4}:){1,2}(:[0-9A-Fa-f]{1,4}){1,5})|[0-9A-Fa-f]{1,4}:((:[0-9A-Fa-f]{1,4}){1,6})|:((:[0-9A-Fa-f]{1,4}){1,7}|:))$/;
+
+            return ipv4.test(ip) || ipv6.test(ip);
+        }
+
+
+        /*
+         * Display a status message.
+         */
+
+        function showStatus(message, type) {
+
+            statusMessage.textContent = message;
+
+            statusMessage.className =
+                "ip-status show " + type;
+        }
+
+
+        /*
+         * Clear status message.
+         */
+
+        function clearStatus() {
+
+            statusMessage.textContent = "";
+
+            statusMessage.className = "ip-status";
+
+        }
+
+
+        /*
+         * Reset results.
+         */
+
+        function clearResults() {
+
+            resultsSection.classList.remove("show");
+
+            resultIp.textContent = "—";
+            resultCountry.textContent = "—";
+            resultRegion.textContent = "—";
+            resultCity.textContent = "—";
+            resultISP.textContent = "—";
+            resultTimezone.textContent = "—";
+            resultLatitude.textContent = "—";
+            resultLongitude.textContent = "—";
+
+            coordinateLatitude.textContent = "—";
+            coordinateLongitude.textContent = "—";
+
+            if (marker && map) {
+
+                map.removeLayer(marker);
+
+                marker = null;
+
+            }
+
+        }
+
+
+        /*
+         * Create the map.
+         */
+
+        function createMap(latitude, longitude, city, country) {
+
+            if (!map) {
+
+                map = L.map("ipMap");
+
+                L.tileLayer(
+                    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                    {
+                        maxZoom: 19,
+                        attribution:
+                            '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'
+                    }
+                ).addTo(map);
+
+            }
+
+            map.setView(
+                [latitude, longitude],
+                10
+            );
+
+
+            if (marker) {
+
+                map.removeLayer(marker);
+
+            }
+
+
+            marker = L.marker(
+                [latitude, longitude]
+            )
+            .addTo(map)
+            .bindPopup(
+                "<strong>Approximate IP Location</strong><br>" +
+                city +
+                ", " +
+                country
+            )
+            .openPopup();
+
+
+            /*
+             * Fix map rendering when the results card becomes visible.
+             */
+
+            setTimeout(function () {
+
+                map.invalidateSize();
+
+            }, 200);
+
+        }
+
+
+        /*
+         * Perform IP lookup.
+         */
+
+        async function lookupIP() {
+
+            const ip = ipInput.value.trim();
+
+
+            if (!ip) {
+
+                showStatus(
+                    "Please enter an IP address.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if (!isValidIP(ip)) {
+
+                showStatus(
+                    "Please enter a valid IPv4 or IPv6 address.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            clearResults();
+
+            showStatus(
+                "Looking up IP address...",
+                "loading"
+            );
+
+
+            lookupButton.disabled = true;
+
+            lookupButton.textContent = "Looking Up...";
+
+
+            try {
+
+                const response = await fetch(
+                    "https://ipwho.is/" +
+                    encodeURIComponent(ip)
+                );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "The IP lookup service returned an error."
+                    );
+
+                }
+
+
+                const data = await response.json();
+
+
+                if (!data.success) {
+
+                    throw new Error(
+                        data.message ||
+                        "Unable to retrieve information for this IP address."
+                    );
+
+                }
+
+
+                /*
+                 * Populate results.
+                 */
+
+                resultIp.textContent =
+                    data.ip || ip;
+
+                resultCountry.textContent =
+                    data.country || "Unavailable";
+
+                resultRegion.textContent =
+                    data.region || "Unavailable";
+
+                resultCity.textContent =
+                    data.city || "Unavailable";
+
+                resultISP.textContent =
+                    data.connection &&
+                    data.connection.isp
+                        ? data.connection.isp
+                        : "Unavailable";
+
+                resultTimezone.textContent =
+                    data.timezone &&
+                    data.timezone.id
+                        ? data.timezone.id
+                        : "Unavailable";
+
+
+                const latitude =
+                    Number(data.latitude);
+
+                const longitude =
+                    Number(data.longitude);
+
+
+                if (
+                    Number.isFinite(latitude) &&
+                    Number.isFinite(longitude)
+                ) {
+
+                    resultLatitude.textContent =
+                        latitude.toFixed(6);
+
+                    resultLongitude.textContent =
+                        longitude.toFixed(6);
+
+                    coordinateLatitude.textContent =
+                        latitude.toFixed(6);
+
+                    coordinateLongitude.textContent =
+                        longitude.toFixed(6);
+
+
+                    createMap(
+                        latitude,
+                        longitude,
+                        data.city || "Unknown city",
+                        data.country || "Unknown country"
+                    );
+
+                } else {
+
+                    resultLatitude.textContent =
+                        "Unavailable";
+
+                    resultLongitude.textContent =
+                        "Unavailable";
+
+                    coordinateLatitude.textContent =
+                        "Unavailable";
+
+                    coordinateLongitude.textContent =
+                        "Unavailable";
+
+                }
+
+
+                resultsSection.classList.add("show");
+
+
+                showStatus(
+                    "IP information successfully retrieved.",
+                    "success"
+                );
+
+
+                /*
+                 * Scroll to results.
+                 */
+
+                setTimeout(function () {
+
+                    resultsSection.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                }, 100);
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                showStatus(
+                    "Unable to look up this IP address. Please check your internet connection and try again.",
+                    "error"
+                );
+
+            } finally {
+
+                lookupButton.disabled = false;
+
+                lookupButton.textContent = "Look Up IP";
+
+            }
+
+        }
+
+
+        /*
+         * Clear everything.
+         */
+
+        function clearAll() {
+
+            ipInput.value = "";
+
+            clearResults();
+
+            clearStatus();
+
+            ipInput.focus();
+
+        }
+
+
+        /*
+         * Button events.
+         */
+
+        lookupButton.addEventListener(
+            "click",
+            lookupIP
+        );
+
+
+        clearButton.addEventListener(
+            "click",
+            clearAll
+        );
+
+
+        /*
+         * Allow Enter key to perform lookup.
+         */
+
+        ipInput.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Enter") {
+
+                    lookupIP();
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+    <!-- =========================================================
+         OPTIONAL EXISTING WEBSITE SCRIPT
+         ========================================================= -->
+
+    <script src="Script.js"></script>
+
+</body>
+</html>
