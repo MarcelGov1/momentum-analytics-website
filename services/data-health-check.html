@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Free Data Health Check for Businesses | Momentum Analytics</title>
+
+    <meta name="description"
+        content="Identify data problems, reporting gaps and opportunities with a free 30-minute Data Health Check from Momentum Analytics. Helping businesses turn data into better decisions.">
+
+    <meta name="keywords"
+        content="data health check South Africa, business data analysis, data quality, business reporting, data analytics South Africa, Power BI, SQL, Excel, business intelligence">
+
+    <meta name="author" content="Momentum Analytics">
+
+    <link rel="canonical"
+        href="https://www.momentumanalytics.co.za/services/data-health-check.html">
+
+    <!-- Open Graph -->
+
+    <meta property="og:title"
+        content="Free Data Health Check | Momentum Analytics">
+
+    <meta property="og:description"
+        content="Discover where your business data can be improved with a free 30-minute Data Health Check from Momentum Analytics.">
+
+    <meta property="og:type"
+        content="website">
+
+    <meta property="og:url"
+        content="https://www.momentumanalytics.co.za/services/data-health-check.html">
+
+    <meta property="og:image"
+        content="https://www.momentumanalytics.co.za/image/Momentum%20logo.jpg">
+
+    <!-- Favicon -->
+
+    <link rel="icon"
+        type="image/jpeg"
+        href="../image/Momentum%20logo.jpg">
+
+    <!-- Existing Website CSS -->
+
+    <link rel="stylesheet"
+        href="../style.css">
+
+    <!-- Page-specific styling -->
+
+    <style>
+
+        /* =========================
+           DATA HEALTH CHECK PAGE
+           ========================= */
+
+        .health-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Breadcrumb */
+
+        .breadcrumb {
+            padding: 25px 0 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #1f5f8b;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero */
+
+        .health-hero {
+            padding: 70px 0 60px;
+            text-align: center;
+        }
+
+        .health-hero h1 {
+            font-size: clamp(36px, 6vw, 62px);
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .health-hero h1 span {
+            color: #1f5f8b;
+        }
+
+        .health-hero p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 19px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .health-cta {
+            display: inline-block;
+            background: #1f5f8b;
+            color: #ffffff;
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .health-cta:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        /* Intro */
+
+        .health-intro {
+            padding: 60px 0;
+        }
+
+        .health-intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .health-intro h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .health-intro p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .health-highlight {
+            background: #f4f8fb;
+            padding: 35px;
+            border-radius: 18px;
+            border-left: 5px solid #1f5f8b;
+        }
+
+        .health-highlight h3 {
+            margin-bottom: 15px;
+        }
+
+        .health-highlight ul {
+            padding-left: 20px;
+        }
+
+        .health-highlight li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        /* What we check */
+
+        .check-section {
+            padding: 70px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 45px;
+        }
+
+        .section-heading h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .section-heading p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .check-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .check-card {
+            padding: 30px;
+            border-radius: 16px;
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            transition: 0.3s ease;
+        }
+
+        .check-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .check-number {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #1f5f8b;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .check-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .check-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Questions */
+
+        .questions-section {
+            padding: 70px 0;
+            background: #f7f9fb;
+        }
+
+        .questions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .question-card {
+            background: #ffffff;
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .question-card h3 {
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .question-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Process */
+
+        .process-section {
+            padding: 80px 0;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .process-step-number {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: #1f5f8b;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .process-step h3 {
+            margin-bottom: 12px;
+        }
+
+        .process-step p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Benefits */
+
+        .benefits-section {
+            padding: 70px 0;
+        }
+
+        .benefits-list {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .benefit {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 22px;
+            align-items: flex-start;
+        }
+
+        .benefit-icon {
+            width: 30px;
+            height: 30px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: #1f5f8b;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .benefit p {
+            margin: 0;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        /* CTA */
+
+        .final-cta {
+            margin: 70px 0;
+            padding: 70px 30px;
+            text-align: center;
+            background: #eef5f9;
+            border-radius: 25px;
+        }
+
+        .final-cta h2 {
+            font-size: 38px;
+            margin-bottom: 18px;
+        }
+
+        .final-cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            margin-left: 12px;
+            padding: 15px 30px;
+            border-radius: 30px;
+            border: 1px solid #1f5f8b;
+            color: #1f5f8b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* FAQ */
+
+        .faq-section {
+            padding: 70px 0;
+        }
+
+        .faq-container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 22px 0;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 10px;
+            font-size: 19px;
+        }
+
+        .faq-item p {
+            color: #666;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 800px) {
+
+            .health-intro-grid,
+            .check-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .questions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .health-hero {
+                padding: 45px 0;
+            }
+
+            .health-intro h2,
+            .section-heading h2,
+            .final-cta h2 {
+                font-size: 30px;
+            }
+
+        }
+
+        @media (max-width: 550px) {
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-secondary {
+                display: block;
+                margin: 15px auto 0;
+                width: fit-content;
+            }
+
+        }
+
+    </style>
+
+    <!-- Structured Data -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Momentum Analytics",
+        "url": "https://www.momentumanalytics.co.za/",
+        "description": "Momentum Analytics provides data analytics, business intelligence, reporting, SQL, Excel, Power BI and data quality solutions for businesses.",
+        "areaServed": {
+            "@type": "Country",
+            "name": "South Africa"
+        },
+        "serviceType": "Data Health Check",
+        "email": "info@momentumanalytics.co.za",
+        "telephone": "+27 69 259 9107"
+    }
+    </script>
+
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+         ========================= -->
+
+    <header>
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../index.html#about">
+                About
+            </a>
+
+            <a href="../index.html#services">
+                Services
+            </a>
+
+            <a href="../index.html#portfolio">
+                Portfolio
+            </a>
+
+            <a href="../index.html#contact">
+                Contact
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <div class="health-page">
+
+            <!-- Breadcrumb -->
+
+            <div class="breadcrumb">
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                &nbsp; / &nbsp;
+
+                <a href="../index.html#services">
+                    Services
+                </a>
+
+                &nbsp; / &nbsp;
+
+                Data Health Check
+
+            </div>
+
+
+            <!-- =========================
+                 HERO
+                 ========================= -->
+
+            <section class="health-hero">
+
+                <h1>
+                    Is Your Business Data
+                    <span>Working for You?</span>
+                </h1>
+
+                <p>
+                    A Data Health Check helps identify problems with your
+                    business data, reporting processes and information flow
+                    so you can make better-informed decisions.
+                </p>
+
+                <a
+                    href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAbWngcNUODVRSzFQTEZISlQ4MjRUTUg4UUhLSzVNRi4u"
+                    class="health-cta"
+                    target="_blank"
+                    rel="noopener">
+                    Book Your Free 30-Minute Data Health Check
+                </a>
+
+            </section>
+
+
+            <!-- =========================
+                 INTRODUCTION
+                 ========================= -->
+
+            <section class="health-intro">
+
+                <div class="health-intro-grid">
+
+                    <div>
+
+                        <h2>
+                            Understand the Health of Your Business Data
+                        </h2>
+
+                        <p>
+                            Businesses generate information every day through
+                            sales, customers, finances, operations, employees,
+                            marketing and other business activities.
+                        </p>
+
+                        <p>
+                            But having data is not the same as having useful
+                            data. If information is incomplete, inconsistent,
+                            difficult to access or spread across different
+                            systems, it can become difficult to understand what
+                            is actually happening in the business.
+                        </p>
+
+                        <p>
+                            Momentum Analytics uses a Data Health Check to
+                            understand how your business currently collects,
+                            stores, manages and uses data.
+                        </p>
+
+                    </div>
+
+
+                    <div class="health-highlight">
+
+                        <h3>
+                            During the assessment, we look at areas such as:
+                        </h3>
+
+                        <ul>
+
+                            <li>
+                                Data collection and storage
+                            </li>
+
+                            <li>
+                                Data quality and consistency
+                            </li>
+
+                            <li>
+                                Reporting processes
+                            </li>
+
+                            <li>
+                                Business dashboards
+                            </li>
+
+                            <li>
+                                Excel and spreadsheet processes
+                            </li>
+
+                            <li>
+                                SQL and database information
+                            </li>
+
+                            <li>
+                                Business decision-making
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 WHAT WE CHECK
+                 ========================= -->
+
+            <section class="check-section">
+
+                <div class="section-heading">
+
+                    <h2>
+                        What Does a Data Health Check Examine?
+                    </h2>
+
+                    <p>
+                        The purpose is to identify where your current data
+                        processes are working well and where improvements
+                        could make your information more useful.
+                    </p>
+
+                </div>
+
+
+                <div class="check-grid">
+
+
+                    <div class="check-card">
+
+                        <div class="check-number">
+                            1
+                        </div>
+
+                        <h3>
+                            Data Quality
+                        </h3>
+
+                        <p>
+                            We look for issues such as missing information,
+                            inconsistent values, duplicate records and
+                            unreliable data that may affect reporting.
+                        </p>
+
+                    </div>
+
+
+                    <div class="check-card">
+
+                        <div class="check-number">
+                            2
+                        </div>
+
+                        <h3>
+                            Data Collection
+                        </h3>
+
+                        <p>
+                            We examine how information enters your business
+                            and whether the current collection process gives
+                            you the information you need.
+                        </p>
+
+                    </div>
+
+
+                    <div class="check-card">
+
+                        <div class="check-number">
+                            3
+                        </div>
+
+                        <h3>
+                            Reporting
+                        </h3>
+
+                        <p>
+                            We look at how your business currently produces
+                            reports and whether reporting is efficient,
+                            consistent and useful for decision-making.
+                        </p>
+
+                    </div>
+
+
+                    <div class="check-card">
+
+                        <div class="check-number">
+                            4
+                        </div>
+
+                        <h3>
+                            Dashboards & Insights
+                        </h3>
+
+                        <p>
+                            We assess whether your business could benefit from
+                            clearer dashboards, visual reporting or automated
+                            access to important business information.
+                        </p>
+
+                    </div>
+
+
+                    <div class="check-card">
+
+                        <div class="check-number">
+                            5
+                        </div>
+
+                        <h3>
+                            Data Systems
+                        </h3>
+
+                        <p>
+                            We discuss the tools and systems your business uses,
+                            including Excel, databases, SQL, Power BI and other
+                            reporting tools.
+                        </p>
+
+                    </div>
+
+
+                    <div class="check-card">
+
+                        <div class="check-number">
+                            6
+                        </div>
+
+                        <h3>
+                            Decision-Making
+                        </h3>
+
+                        <p>
+                            We identify whether the information available to
+                            management provides the visibility needed to
+                            understand business performance.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 KEY QUESTIONS
+                 ========================= -->
+
+            <section class="questions-section">
+
+                <div class="health-page">
+
+                    <div class="section-heading">
+
+                        <h2>
+                            Questions We Ask About Your Data
+                        </h2>
+
+                        <p>
+                            Every business handles information differently.
+                            These questions help us understand your current
+                            data environment.
+                        </p>
+
+                    </div>
+
+
+                    <div class="questions-grid">
+
+
+                        <div class="question-card">
+
+                            <h3>
+                                Where Is Your Data?
+                            </h3>
+
+                            <p>
+                                Is your information stored in spreadsheets,
+                                databases, accounting systems, CRM platforms
+                                or multiple locations?
+                            </p>
+
+                        </div>
+
+
+                        <div class="question-card">
+
+                            <h3>
+                                Can You Trust It?
+                            </h3>
+
+                            <p>
+                                Are your reports based on information that is
+                                accurate, complete and consistent?
+                            </p>
+
+                        </div>
+
+
+                        <div class="question-card">
+
+                            <h3>
+                                How Long Does Reporting Take?
+                            </h3>
+
+                            <p>
+                                How much time does your team spend collecting,
+                                cleaning and preparing information?
+                            </p>
+
+                        </div>
+
+
+                        <div class="question-card">
+
+                            <h3>
+                                What Do You Measure?
+                            </h3>
+
+                            <p>
+                                Are you tracking the business metrics that
+                                actually matter to your operations and goals?
+                            </p>
+
+                        </div>
+
+
+                        <div class="question-card">
+
+                            <h3>
+                                Who Uses the Information?
+                            </h3>
+
+                            <p>
+                                Can the right people easily access the
+                                information they need when making decisions?
+                            </p>
+
+                        </div>
+
+
+                        <div class="question-card">
+
+                            <h3>
+                                What Could Be Improved?
+                            </h3>
+
+                            <p>
+                                Are there repetitive processes or reporting
+                                tasks that could potentially be streamlined?
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 PROCESS
+                 ========================= -->
+
+            <section class="process-section">
+
+                <div class="section-heading">
+
+                    <h2>
+                        How the Free Data Health Check Works
+                    </h2>
+
+                    <p>
+                        A simple four-step process designed to understand
+                        your current situation and identify potential areas
+                        for improvement.
+                    </p>
+
+                </div>
+
+
+                <div class="process-grid">
+
+
+                    <div class="process-step">
+
+                        <div class="process-step-number">
+                            1
+                        </div>
+
+                        <h3>
+                            Book
+                        </h3>
+
+                        <p>
+                            Complete the consultation form and request your
+                            free 30-minute Data Health Check.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-step">
+
+                        <div class="process-step-number">
+                            2
+                        </div>
+
+                        <h3>
+                            Discuss
+                        </h3>
+
+                        <p>
+                            We discuss how your business currently collects,
+                            manages and uses information.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-step">
+
+                        <div class="process-step-number">
+                            3
+                        </div>
+
+                        <h3>
+                            Identify
+                        </h3>
+
+                        <p>
+                            We identify potential data quality, reporting
+                            and process improvement areas.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-step">
+
+                        <div class="process-step-number">
+                            4
+                        </div>
+
+                        <h3>
+                            Improve
+                        </h3>
+
+                        <p>
+                            Where appropriate, we can discuss practical
+                            analytics solutions for your business.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 BENEFITS
+                 ========================= -->
+
+            <section class="benefits-section">
+
+                <div class="section-heading">
+
+                    <h2>
+                        What You Can Get From a Data Health Check
+                    </h2>
+
+                    <p>
+                        The assessment is designed to give you a clearer
+                        understanding of your current data environment.
+                    </p>
+
+                </div>
+
+
+                <div class="benefits-list">
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            ✓
+                        </div>
+
+                        <p>
+                            A clearer understanding of how your business
+                            currently manages information.
+                        </p>
+
+                    </div>
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            ✓
+                        </div>
+
+                        <p>
+                            Identification of potential data quality and
+                            reporting problems.
+                        </p>
+
+                    </div>
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            ✓
+                        </div>
+
+                        <p>
+                            Greater awareness of information gaps that may
+                            affect business reporting.
+                        </p>
+
+                    </div>
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            ✓
+                        </div>
+
+                        <p>
+                            Potential opportunities to improve reporting,
+                            dashboards and data processes.
+                        </p>
+
+                    </div>
+
+
+                    <div class="benefit">
+
+                        <div class="benefit-icon">
+                            ✓
+                        </div>
+
+                        <p>
+                            A starting point for building a more structured
+                            approach to business analytics.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 CTA
+                 ========================= -->
+
+            <section class="final-cta">
+
+                <h2>
+                    Start Understanding Your Business Data
+                </h2>
+
+                <p>
+                    You don't need to know exactly what is wrong with your
+                    data before speaking to us. The Data Health Check is
+                    designed to start the conversation and identify areas
+                    worth investigating.
+                </p>
+
+                <a
+                    href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAbWngcNUODVRSzFQTEZISlQ4MjRUTUg4UUhLSzVNRi4u"
+                    class="health-cta"
+                    target="_blank"
+                    rel="noopener">
+                    Book Free Data Health Check
+                </a>
+
+                <a
+                    href="mailto:info@momentumanalytics.co.za"
+                    class="cta-secondary">
+                    Email Momentum Analytics
+                </a>
+
+            </section>
+
+
+            <!-- =========================
+                 FAQ
+                 ========================= -->
+
+            <section class="faq-section">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Data Health Check FAQs
+                    </h2>
+
+                </div>
+
+
+                <div class="faq-container">
+
+
+                    <div class="faq-item">
+
+                        <h3>
+                            What is a Data Health Check?
+                        </h3>
+
+                        <p>
+                            A Data Health Check is an initial assessment of
+                            how your business collects, stores, manages,
+                            reports and uses data.
+                        </p>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <h3>
+                            How long does the Data Health Check take?
+                        </h3>
+
+                        <p>
+                            The initial consultation is designed to take
+                            approximately 30 minutes.
+                        </p>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <h3>
+                            Do I need to prepare anything?
+                        </h3>
+
+                        <p>
+                            You do not need to be a data expert. It is helpful
+                            to have a general understanding of the systems,
+                            spreadsheets and reports your business currently
+                            uses.
+                        </p>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <h3>
+                            What type of businesses can use the service?
+                        </h3>
+
+                        <p>
+                            The Data Health Check can be useful for businesses
+                            that want to better understand their data,
+                            reporting processes and opportunities for
+                            improvement.
+                        </p>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <h3>
+                            What happens after the assessment?
+                        </h3>
+
+                        <p>
+                            We can discuss the areas identified during the
+                            conversation and, where appropriate, potential
+                            analytics, reporting or data improvement solutions.
+                        </p>
+
+                    </div>
+
+
+                    <div class="faq-item">
+
+                        <h3>
+                            Is the initial Data Health Check free?
+                        </h3>
+
+                        <p>
+                            Momentum Analytics currently offers an initial
+                            30-minute Data Health Check at no charge.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Momentum Analytics. All rights reserved.
+        </p>
+
+        <p>
+            South Africa
+        </p>
+
+        <p>
+            <a href="mailto:info@momentumanalytics.co.za">
+                info@momentumanalytics.co.za
+            </a>
+        </p>
+
+        <p>
+            <a href="tel:+27692599107">
+                +27 69 259 9107
+            </a>
+        </p>
+
+    </footer>
+
+
+    <!-- Existing JavaScript -->
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
