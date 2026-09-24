@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>Power BI Dashboards South Africa | Momentum Analytics</title>
+
+    <meta name="description"
+          content="Momentum Analytics provides Power BI dashboard and reporting solutions for businesses in South Africa. Turn business data into interactive dashboards, KPIs and meaningful insights.">
+
+    <meta name="keywords"
+          content="Power BI dashboards South Africa, Power BI services South Africa, Power BI reporting, business intelligence South Africa, data dashboards, KPI dashboards, interactive dashboards">
+
+    <meta name="author"
+          content="Momentum Analytics">
+
+    <link rel="canonical"
+          href="https://www.momentumanalytics.co.za/services/power-bi-dashboards.html">
+
+
+    <!-- Open Graph -->
+
+    <meta property="og:title"
+          content="Power BI Dashboards South Africa | Momentum Analytics">
+
+    <meta property="og:description"
+          content="Interactive Power BI dashboards and reporting solutions that help businesses understand performance, monitor KPIs and make better use of their data.">
+
+    <meta property="og:image"
+          content="https://www.momentumanalytics.co.za/image/Momentum%20logo.jpg">
+
+    <meta property="og:url"
+          content="https://www.momentumanalytics.co.za/services/power-bi-dashboards.html">
+
+    <meta property="og:type"
+          content="website">
+
+
+    <!-- Shared CSS -->
+
+    <link rel="stylesheet"
+          href="../style.css">
+
+
+    <!-- Page-specific styling -->
+
+    <style>
+
+        .service-page {
+            padding-top: 20px;
+        }
+
+        .dashboard-preview {
+            background: rgba(255,255,255,0.96);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.08);
+            margin-top: 30px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        .dashboard-header h3 {
+            margin: 0;
+        }
+
+        .dashboard-label {
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .dashboard-stat {
+            padding: 18px;
+            border-radius: 14px;
+            background: #f5f7fa;
+        }
+
+        .dashboard-stat span {
+            display: block;
+            font-size: 12px;
+            opacity: 0.65;
+            margin-bottom: 7px;
+        }
+
+        .dashboard-stat strong {
+            font-size: 24px;
+        }
+
+        .dashboard-chart {
+            height: 180px;
+            margin-top: 18px;
+            border-radius: 14px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0,0,0,0.03),
+                    rgba(0,0,0,0.07)
+                );
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-line {
+            position: absolute;
+            left: 5%;
+            right: 5%;
+            bottom: 25%;
+            height: 3px;
+            background: currentColor;
+            transform: rotate(-7deg);
+            transform-origin: left center;
+        }
+
+        .chart-line::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            top: 30px;
+            left: 0;
+            opacity: 0.35;
+            background: currentColor;
+            transform: rotate(10deg);
+            transform-origin: left center;
+        }
+
+        .powerbi-note {
+            margin-top: 18px;
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .comparison-table th {
+            font-weight: 600;
+        }
+
+        .faq-item {
+            margin-bottom: 25px;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .comparison-table {
+                font-size: 14px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     NAVIGATION
+========================================== -->
+
+<header>
+
+    <nav class="navbar">
+
+        <a href="../index.html#home"
+           class="logo">
+
+            <img src="../image/Momentum%20logo.jpg"
+                 alt="Momentum Analytics">
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="../index.html#home">
+                Home
+            </a>
+
+            <a href="../index.html#about">
+                About
+            </a>
+
+            <a href="../index.html#services">
+                Services
+            </a>
+
+            <a href="../index.html#who-we-help">
+                Who We Help
+            </a>
+
+            <a href="../index.html#how-it-works">
+                How It Works
+            </a>
+
+            <a href="../index.html#portfolio">
+                Portfolio
+            </a>
+
+            <a href="../index.html#testimonials">
+                Testimonials
+            </a>
+
+            <a href="../index.html#contact">
+                Contact
+            </a>
+
+            <a href="../index.html#faq">
+                FAQ
+            </a>
+
+        </div>
+
+
+        <a href="../index.html#contact"
+           class="nav-button">
+
+            Get Started
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="service-page">
+
+
+<!-- ==========================================
+     BREADCRUMB
+========================================== -->
+
+<section class="breadcrumb">
+
+    <div class="container">
+
+        <a href="../index.html">
+            Home
+        </a>
+
+        <span>
+            /
+        </span>
+
+        <a href="data-analytics.html">
+            Data Analytics
+        </a>
+
+        <span>
+            /
+        </span>
+
+        <span>
+            Power BI Dashboards
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     HERO
+========================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            POWER BI • BUSINESS INTELLIGENCE
+        </p>
+
+
+        <h1>
+            Power BI Dashboards
+            <br>
+            <span>for South African Businesses.</span>
+        </h1>
+
+
+        <p class="hero-description">
+
+            Turn your business data into interactive Power BI
+            dashboards that make important information easier
+            to understand, monitor and use.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="../index.html#contact"
+               class="btn primary">
+
+                Start a Conversation →
+
+            </a>
+
+
+            <a href="#services"
+               class="btn secondary">
+
+                Explore Power BI
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Dashboard Visual -->
+
+    <div class="hero-visual">
+
+        <div class="dashboard-preview">
+
+            <div class="dashboard-header">
+
+                <div>
+
+                    <span class="dashboard-label">
+                        BUSINESS DASHBOARD
+                    </span>
+
+                    <h3>
+                        Performance Overview
+                    </h3>
+
+                </div>
+
+                <span>
+                    Power BI
+                </span>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <div class="dashboard-stat">
+
+                    <span>
+                        Revenue
+                    </span>
+
+                    <strong>
+                        R245K
+                    </strong>
+
+                </div>
+
+
+                <div class="dashboard-stat">
+
+                    <span>
+                        Customers
+                    </span>
+
+                    <strong>
+                        1,248
+                    </strong>
+
+                </div>
+
+
+                <div class="dashboard-stat">
+
+                    <span>
+                        Growth
+                    </span>
+
+                    <strong>
+                        18%
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-chart">
+
+                <div class="chart-line"></div>
+
+            </div>
+
+
+            <p class="powerbi-note">
+
+                Example dashboard visual — actual dashboards
+                are developed around your business requirements
+                and available data.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     INTRODUCTION
+========================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <p class="eyebrow">
+            POWER BI DASHBOARD SERVICES
+        </p>
+
+
+        <h2>
+            Make your business data easier to understand.
+        </h2>
+
+
+        <p class="section-intro">
+
+            Businesses often have valuable information stored
+            across spreadsheets, systems and databases. Power BI
+            can bring that information together into interactive
+            dashboards and reports.
+
+        </p>
+
+    </div>
+
+
+    <div class="content-block">
+
+        <p>
+
+            Momentum Analytics helps businesses turn their data
+            into practical Power BI dashboards designed around
+            the information they need to monitor.
+
+        </p>
+
+
+        <p>
+
+            Instead of working through large spreadsheets or
+            disconnected reports, dashboards can provide a
+            structured view of important business information,
+            trends and key performance indicators.
+
+        </p>
+
+
+        <p>
+
+            The objective is to make business information clearer
+            so that you can spend less time searching for numbers
+            and more time understanding what those numbers mean.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     SERVICES
+========================================== -->
+
+<section class="section" id="services">
+
+    <div class="section-title">
+
+        <p class="eyebrow">
+            WHAT WE CAN BUILD
+        </p>
+
+
+        <h2>
+            Power BI dashboard solutions
+        </h2>
+
+
+        <p class="section-intro">
+
+            Dashboard development can be structured around
+            the way your business measures performance.
+
+        </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                BI
+            </div>
+
+            <h3>
+                Power BI Dashboards
+            </h3>
+
+            <p>
+
+                Interactive dashboards that bring important
+                business information together in one visual view.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                KPI
+            </div>
+
+            <h3>
+                KPI Dashboards
+            </h3>
+
+            <p>
+
+                Monitor selected key performance indicators and
+                track important measures over time.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                $$
+            </div>
+
+            <h3>
+                Sales Dashboards
+            </h3>
+
+            <p>
+
+                Analyse sales performance, trends, targets and
+                other relevant sales information.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                MG
+            </div>
+
+            <h3>
+                Management Dashboards
+            </h3>
+
+            <p>
+
+                Present important business information in a
+                format that makes management reporting easier
+                to review.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                OP
+            </div>
+
+            <h3>
+                Operational Dashboards
+            </h3>
+
+            <p>
+
+                Create dashboards around operational information,
+                performance measures and business activity.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                RP
+            </div>
+
+            <h3>
+                Power BI Reporting
+            </h3>
+
+            <p>
+
+                Transform business data into structured reports
+                that help communicate important findings.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                DM
+            </div>
+
+            <h3>
+                Data Modelling
+            </h3>
+
+            <p>
+
+                Structure available data so that relevant
+                information can be analysed through Power BI.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                DS
+            </div>
+
+            <h3>
+                Data Preparation
+            </h3>
+
+            <p>
+
+                Prepare and organise business data before it is
+                used for dashboard development and reporting.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     WHAT DASHBOARDS CAN SHOW
+========================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <p class="eyebrow">
+            BUSINESS INFORMATION
+        </p>
+
+
+        <h2>
+            What can a Power BI dashboard show?
+        </h2>
+
+
+        <p class="section-intro">
+
+            The information included in a dashboard depends on
+            your business, objectives and available data.
+
+        </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+
+        <div class="service-card">
+
+            <h3>
+                Sales Performance
+            </h3>
+
+            <p>
+
+                Review sales figures, trends, targets and other
+                relevant sales measures.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>
+                Financial Information
+            </h3>
+
+            <p>
+
+                Present relevant financial measures and trends
+                in a structured dashboard.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>
+                Customer Data
+            </h3>
+
+            <p>
+
+                Analyse customer-related information and identify
+                useful patterns within available data.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>
+                Operational Data
+            </h3>
+
+            <p>
+
+                Monitor operational measures and business activity
+                through visual reporting.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>
+                Business KPIs
+            </h3>
+
+            <p>
+
+                Bring selected performance indicators together
+                into a central dashboard.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>
+                Trends & Patterns
+            </h3>
+
+            <p>
+
+                Explore changes in your data and identify trends
+                that may require further analysis.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     WHY POWER BI
+========================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <p class="eyebrow">
+            WHY POWER BI
+        </p>
+
+
+        <h2>
+            From spreadsheets to visual insights.
+        </h2>
+
+    </div>
+
+
+    <div class="content-block">
+
+        <p>
+
+            Power BI dashboards can provide a more visual way
+            to work with business information. Instead of
+            reviewing numbers in isolation, information can be
+            presented through charts, tables, indicators and
+            interactive views.
+
+        </p>
+
+
+        <div class="services-grid">
+
+
+            <div class="service-card">
+
+                <h3>
+                    Interactive Analysis
+                </h3>
+
+                <p>
+
+                    Explore information through interactive
+                    dashboard elements and filters.
+
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <h3>
+                    Clear KPI Visibility
+                </h3>
+
+                <p>
+
+                    Place important performance measures into
+                    a central reporting environment.
+
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <h3>
+                    Visual Reporting
+                </h3>
+
+                <p>
+
+                    Present complex information using visual
+                    reports and dashboard components.
+
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <h3>
+                    Trend Monitoring
+                </h3>
+
+                <p>
+
+                    Review historical information and monitor
+                    changes within your available data.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     DASHBOARD VS STATIC REPORT
+========================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <p class="eyebrow">
+            REPORTING
+        </p>
+
+
+        <h2>
+            Dashboards and traditional reports
+        </h2>
+
+
+        <p class="section-intro">
+
+            Different reporting formats serve different
+            business requirements.
+
+        </p>
+
+    </div>
+
+
+    <table class="comparison-table">
+
+        <thead>
+
+            <tr>
+
+                <th>
+                    Traditional Report
+                </th>
+
+                <th>
+                    Power BI Dashboard
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            <tr>
+
+                <td>
+                    Often focuses on presenting information.
+                </td>
+
+                <td>
+                    Can provide an interactive view of information.
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    May require manual review of multiple sections.
+                </td>
+
+                <td>
+                    Can bring selected measures into one dashboard.
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Usually provides a fixed reporting view.
+                </td>
+
+                <td>
+                    Can allow users to explore information through
+                    interactive elements.
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Can become difficult to manage as information
+                    increases.
+                </td>
+
+                <td>
+                    Can organise larger amounts of business
+                    information into visual reporting views.
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+
+<!-- ==========================================
+     DATA QUALITY
+========================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <p class="eyebrow">
+            DATA QUALITY MATTERS
+        </p>
+
+
+        <h2>
+            A dashboard is only as useful as the data behind it.
+        </h2>
+
+
+        <p class="section-intro">
+
+            Before building a dashboard, it is important to
+            understand the quality and structure of the data
+            being used.
+
+        </p>
+
+    </div>
+
+
+    <div class="content-block">
+
+        <p>
+
+            Incorrect, duplicated, incomplete or inconsistent
+            data can affect reporting and analysis. Momentum
+            Analytics can help businesses review their data
+            before it is used for dashboard reporting.
+
+        </p>
+
+
+        <p>
+
+            If you are unsure about the quality of your business
+            data, you can explore our
+
+            <a href="data-quality.html">
+                Data Quality
+            </a>
+
+            service.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     DATA ANALYSIS
+========================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <p class="eyebrow">
+            BEYOND THE DASHBOARD
+        </p>
+
+
+        <h2>
+            Turn dashboard information into deeper analysis.
+        </h2>
+
+
+        <p class="section-intro">
+
+            A dashboard helps you see your information. Data
+            analysis can help you investigate what the numbers
+            are showing.
+
+        </p>
+
+    </div>
+
+
+    <div class="content-block">
+
+        <p>
+
+            Power BI dashboards can be part of a broader data
+            analytics process. Once information is structured
+            and visualised, additional analysis can be performed
+            to explore trends, relationships and business
+            performance.
+
+        </p>
+
+
+        <p>
+
+            Learn more about our
+
+            <a href="data-analysis.html">
+                Data Analysis
+            </a>
+
+            services.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     HOW IT WORKS
+========================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <p class="eyebrow">
+            HOW IT WORKS
+        </p>
+
+
+        <h2>
+            Our Power BI dashboard process
+        </h2>
+
+    </div>
+
+
+    <div class="services-grid">
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                01
+            </div>
+
+            <h3>
+                Understand
+            </h3>
+
+            <p>
+
+                Understand your business requirements, reporting
+                objectives and the information you need to monitor.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                02
+            </div>
+
+            <h3>
+                Prepare
+            </h3>
+
+            <p>
+
+                Review and prepare the available data for
+                dashboard development.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                03
+            </div>
+
+            <h3>
+                Model
+            </h3>
+
+            <p>
+
+                Structure relevant data so that it can be used
+                for analysis and reporting.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                04
+            </div>
+
+            <h3>
+                Build
+            </h3>
+
+            <p>
+
+                Develop dashboard views around your selected
+                KPIs, measures and reporting requirements.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                05
+            </div>
+
+            <h3>
+                Review
+            </h3>
+
+            <p>
+
+                Review the dashboard structure and make sure
+                the information presented meets the agreed
+                requirements.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                06
+            </div>
+
+            <h3>
+                Deliver
+            </h3>
+
+            <p>
+
+                Provide the completed dashboard solution and
+                relevant guidance for using it.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     WHO WE HELP
+========================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <p class="eyebrow">
+            WHO WE HELP
+        </p>
+
+
+        <h2>
+            Power BI for growing businesses
+        </h2>
+
+
+        <p class="section-intro">
+
+            Power BI dashboards can be useful for businesses
+            that need a clearer way to organise and understand
+            their available information.
+
+        </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+
+        <div class="service-card">
+
+            <h3>
+                Small Businesses
+            </h3>
+
+            <p>
+
+                Build structured reporting around the information
+                that matters to your business.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>
+                Medium-Sized Businesses
+            </h3>
+
+            <p>
+
+                Bring different business measures into a more
+                centralised reporting view.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>
+                Professional Services
+            </h3>
+
+            <p>
+
+                Present relevant operational, client and
+                performance information visually.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>
+                Property Businesses
+            </h3>
+
+            <p>
+
+                Explore relevant property, sales, customer or
+                operational information where suitable data exists.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>
+                Operations & Logistics
+            </h3>
+
+            <p>
+
+                Monitor selected operational information and
+                performance measures.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <h3>
+                Growing Companies
+            </h3>
+
+            <p>
+
+                Create a reporting structure that can develop
+                alongside your business data requirements.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     DATA HEALTH CHECK CTA
+========================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <p class="eyebrow">
+            NOT SURE WHERE TO START?
+        </p>
+
+
+        <h2>
+            Start with a Data Health Check.
+        </h2>
+
+
+        <p class="section-intro">
+
+            If you are unsure whether your business data is ready
+            for dashboards or analysis, a Data Health Check can
+            help identify areas that may need attention.
+
+        </p>
+
+
+        <a href="data-health-check.html"
+           class="btn primary">
+
+            Explore Data Health Check →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     CONTACT CTA
+========================================== -->
+
+<section class="section contact">
+
+    <div class="section-title">
+
+        <p class="eyebrow">
+            GET STARTED
+        </p>
+
+
+        <h2>
+            Let's turn your data into a useful dashboard.
+        </h2>
+
+
+        <p class="section-intro">
+
+            Have a Power BI, dashboard or reporting requirement?
+            Let's discuss your business data and what you would
+            like your dashboard to show.
+
+        </p>
+
+
+        <a
+            href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAbN8ushUM0xSN1hQTVhRWjdFRFRENFc0T0pFSFNVVy4u"
+            class="btn primary"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Request a Consultation →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     FAQ
+========================================== -->
+
+<section class="section" id="faq">
+
+    <div class="section-title">
+
+        <p class="eyebrow">
+            FAQ
+        </p>
+
+
+        <h2>
+            Power BI Dashboard FAQs
+        </h2>
+
+    </div>
+
+
+    <div class="faq-item">
+
+        <h3>
+            What is Power BI?
+        </h3>
+
+        <p>
+
+            Power BI is a business intelligence and data
+            visualisation platform that can be used to analyse
+            information and create interactive reports and
+            dashboards.
+
+        </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+        <h3>
+            What is a Power BI dashboard?
+        </h3>
+
+        <p>
+
+            A Power BI dashboard is a visual reporting environment
+            that can bring selected business information and
+            performance measures together.
+
+        </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+        <h3>
+            Can you build a Power BI dashboard using Excel data?
+        </h3>
+
+        <p>
+
+            Yes. Excel can be one of the sources used for a Power
+            BI dashboard, depending on the structure and quality
+            of the data.
+
+        </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+        <h3>
+            Can Power BI work with databases?
+        </h3>
+
+        <p>
+
+            Power BI can work with a range of data sources.
+            The appropriate approach depends on the systems,
+            data structure and requirements of the business.
+
+        </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+        <h3>
+            Can you improve an existing Power BI dashboard?
+        </h3>
+
+        <p>
+
+            Existing dashboards can be reviewed to identify
+            opportunities around layout, reporting requirements,
+            data structure and usability.
+
+        </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+        <h3>
+            Do I need to know Power BI to use a dashboard?
+        </h3>
+
+        <p>
+
+            You do not need to be a data analyst to discuss your
+            reporting requirements. The dashboard can be designed
+            around the business information you need to understand.
+
+        </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+        <h3>
+            How do I get started?
+        </h3>
+
+        <p>
+
+            Contact Momentum Analytics to discuss your business
+            data, reporting requirements and the type of information
+            you would like to monitor.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     FINAL CONTACT
+========================================== -->
+
+<section class="section contact">
+
+    <div class="section-title">
+
+        <p class="eyebrow">
+            MOMENTUM ANALYTICS
+        </p>
+
+
+        <h2>
+            Make your business data easier to understand.
+        </h2>
+
+
+        <p class="section-intro">
+
+            Explore how Power BI dashboards can help you organise,
+            visualise and understand your business information.
+
+        </p>
+
+
+        <a
+            href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAbN8ushUM0xSN1hQTVhRWjdFRFRENFc0T0pFSFNVVy4u"
+            class="btn primary"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Request a Consultation →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+
+            <img src="../image/Momentum%20logo.jpg"
+                 alt="Momentum Analytics">
+
+            <p>
+                Data analytics and digital solutions
+                for businesses.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="../index.html#home">
+                Home
+            </a>
+
+            <a href="../index.html#services">
+                Services
+            </a>
+
+            <a href="../index.html#about">
+                About
+            </a>
+
+            <a href="../index.html#contact">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            <p>
+                <strong>
+                    Email
+                </strong>
+            </p>
+
+            <p>
+                info@momentumanalytics.co.za
+            </p>
+
+
+            <p>
+                <strong>
+                    Phone
+                </strong>
+            </p>
+
+            <p>
+                +27 69 259 9107
+            </p>
+
+
+            <p>
+                South Africa
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Momentum Analytics. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- ==========================================
+     STRUCTURED DATA
+========================================== -->
+
+<script type="application/ld+json">
+
+{
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Momentum Analytics",
+    "url": "https://www.momentumanalytics.co.za/",
+    "logo": "https://www.momentumanalytics.co.za/image/Momentum%20logo.jpg",
+    "description": "Power BI dashboards, business intelligence and data analytics services for businesses in South Africa.",
+    "areaServed": {
+        "@type": "Country",
+        "name": "South Africa"
+    },
+    "serviceType": [
+        "Power BI Dashboards",
+        "Power BI Reporting",
+        "Business Intelligence",
+        "Data Visualisation",
+        "Data Analysis"
+    ],
+    "email": "info@momentumanalytics.co.za",
+    "telephone": "+27692599107"
+}
+
+</script>
+
+
+<!-- Shared JavaScript -->
+
+<script src="../script.js"></script>
+
+
+</body>
+
+</html>
