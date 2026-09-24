@@ -1,181 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 
 <head>
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <title>Data Health Check for South African Businesses | Momentum Analytics</title>
+
+    <!-- SEO -->
+
+    <title>
+        Data Health Check South Africa | Momentum Analytics
+    </title>
 
     <meta name="description"
-        content="Momentum Analytics Data Health Check helps South African businesses review how they collect, manage and use data and identify opportunities to improve data quality and reporting.">
+          content="Momentum Analytics provides Data Health Checks for South African businesses to review data quality, data management, reporting and opportunities for better use of business data.">
 
     <meta name="keywords"
-        content="Data Health Check South Africa, data quality, business data analysis, data analytics South Africa, business reporting, Momentum Analytics">
+          content="Data Health Check South Africa, data health check, data quality South Africa, business data analysis, data analytics South Africa, business reporting, Momentum Analytics">
 
-    <meta name="author" content="Momentum Analytics">
+    <meta name="author"
+          content="Momentum Analytics">
+
+    <meta name="robots"
+          content="index, follow">
+
+
+    <!-- Canonical -->
 
     <link rel="canonical"
-        href="https://www.momentumanalytics.co.za/services/data-health-check.html">
+          href="https://www.momentumanalytics.co.za/services/data-health-check.html">
 
 
     <!-- Open Graph -->
 
     <meta property="og:title"
-        content="Data Health Check | Momentum Analytics">
+          content="Data Health Check South Africa | Momentum Analytics">
 
     <meta property="og:description"
-        content="Review how your business collects, manages and uses data with a Momentum Analytics Data Health Check.">
-
-    <meta property="og:image"
-        content="https://www.momentumanalytics.co.za/image/Momentum%20logo.jpg">
+          content="Review how your business collects, manages and uses data with a Momentum Analytics Data Health Check.">
 
     <meta property="og:url"
-        content="https://www.momentumanalytics.co.za/services/data-health-check.html">
+          content="https://www.momentumanalytics.co.za/services/data-health-check.html">
 
-    <meta property="og:type" content="website">
+    <meta property="og:type"
+          content="website">
+
+    <meta property="og:image"
+          content="https://www.momentumanalytics.co.za/image/Momentum%20logo.jpg">
 
 
     <!-- Favicon -->
 
     <link rel="icon"
-        type="image/jpeg"
-        href="../image/Momentum%20logo.jpg">
+          href="../image/Momentum%20logo.jpg"
+          type="image/jpeg">
 
 
-    <!-- Main Website CSS -->
+    <!-- Existing Website CSS -->
 
     <link rel="stylesheet"
-        href="../style.css">
+          href="../style.css">
 
+
+    <!-- Page-specific styling -->
 
     <style>
 
-        /* =========================================
-           DATA HEALTH CHECK PAGE
-        ========================================= */
-
-        .health-intro {
-            max-width: 900px;
-            margin: 0 auto;
+        .service-page-intro {
+            max-width: 850px;
+            margin: 0 auto 50px;
             text-align: center;
         }
 
-        .health-intro p {
+        .service-page-intro p {
             line-height: 1.8;
         }
 
-        .health-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 45px;
+        .service-page-list {
+            margin-top: 20px;
+            padding-left: 20px;
         }
 
-        .health-card {
-            padding: 30px;
-            border-radius: 15px;
-            background: #ffffff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-        }
-
-        .health-card h3 {
-            margin-bottom: 15px;
-        }
-
-        .health-card p {
+        .service-page-list li {
+            margin-bottom: 12px;
             line-height: 1.7;
         }
 
-        .health-icon {
-            width: 55px;
-            height: 55px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .check-list {
-            max-width: 850px;
-            margin: 40px auto 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .check-list li {
-            margin-bottom: 15px;
-            padding: 15px 20px;
-            border-radius: 10px;
-            background: #ffffff;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-
-        .check-list li::before {
-            content: "✓";
-            font-weight: bold;
-            margin-right: 12px;
-        }
-
-        .health-process {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-            margin-top: 45px;
+        .service-process {
+            counter-reset: process;
         }
 
         .process-card {
-            text-align: center;
-            padding: 30px 20px;
-            border-radius: 15px;
-            background: #ffffff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            position: relative;
         }
 
         .process-number {
-            font-size: 28px;
+            font-size: 13px;
+            letter-spacing: 2px;
             font-weight: 700;
             margin-bottom: 15px;
         }
 
-        .health-results {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            margin-top: 45px;
+        .data-cta {
+            text-align: center;
         }
 
-        .result-card {
-            padding: 30px;
-            border-radius: 15px;
-            background: #ffffff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        .data-cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
         }
 
-        .result-card h3 {
-            margin-bottom: 12px;
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 25px 0;
+            font-size: 13px;
         }
 
-        @media (max-width: 900px) {
-
-            .health-grid,
-            .health-process,
-            .health-results {
-                grid-template-columns: 1fr 1fr;
-            }
-
+        .breadcrumb a {
+            text-decoration: none;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
 
-            .health-grid,
-            .health-process,
-            .health-results {
-                grid-template-columns: 1fr;
+            .breadcrumb {
+                padding-left: 20px;
+                padding-right: 20px;
             }
 
         }
@@ -188,1208 +142,1869 @@
 <body>
 
 
-    <!-- =========================================
-         HEADER / NAVIGATION
-    ========================================= -->
+<!-- ==========================================
+     NAVIGATION
+========================================== -->
 
-    <header>
+<header>
 
-        <nav class="navbar">
+    <nav class="navbar">
 
-            <a href="../index.html" class="logo">
 
-                <img
-                    src="../image/Momentum%20logo.jpg"
-                    alt="Momentum Analytics Logo">
+        <a href="../index.html#home"
+           class="logo">
 
+            <img src="../image/Momentum%20logo.jpg"
+                 alt="Momentum Analytics">
+
+        </a>
+
+
+        <div class="nav-links">
+
+
+            <a href="../index.html#home">
+                Home
             </a>
 
 
-            <div class="nav-links">
+            <a href="../index.html#about">
+                About
+            </a>
 
-                <a href="../index.html">Home</a>
 
-                <a href="../index.html#about">About</a>
+            <a href="../index.html#services">
+                Services
+            </a>
 
-                <a href="../index.html#services">Services</a>
 
-                <a href="../index.html#who-we-help">Who We Help</a>
+            <a href="../index.html#who-we-help">
+                Who We Help
+            </a>
 
-                <a href="../index.html#how-it-works">How It Works</a>
 
-                <a href="../index.html#portfolio">Portfolio</a>
+            <a href="../index.html#how-it-works">
+                How It Works
+            </a>
 
-                <a href="../index.html#testimonials">Testimonials</a>
 
-                <a href="../index.html#contact">Contact</a>
+            <a href="../index.html#portfolio">
+                Portfolio
+            </a>
 
-                <a href="../index.html#faq">FAQ</a>
 
-            </div>
+            <a href="../index.html#testimonials">
+                Testimonials
+            </a>
+
+
+            <a href="../index.html#contact">
+                Contact
+            </a>
+
+
+            <a href="../index.html#faq">
+                FAQ
+            </a>
+
+
+        </div>
+
+
+        <a href="../index.html#contact"
+           class="nav-button">
+
+            Get Started
+
+        </a>
+
+
+    </nav>
+
+</header>
+
+
+
+<!-- ==========================================
+     BREADCRUMB
+========================================== -->
+
+<div class="breadcrumb">
+
+    <a href="../index.html">
+        Home
+    </a>
+
+    <span>
+        &nbsp; / &nbsp;
+    </span>
+
+    <a href="data-analytics.html">
+        Data Analytics
+    </a>
+
+    <span>
+        &nbsp; / &nbsp;
+    </span>
+
+    <span>
+        Data Health Check
+    </span>
+
+</div>
+
+
+
+<!-- ==========================================
+     HERO
+========================================== -->
+
+<section class="hero">
+
+
+    <div class="hero-content">
+
+
+        <p class="eyebrow">
+            DATA QUALITY • BUSINESS INSIGHT
+        </p>
+
+
+        <h1>
+
+            Data Health Check
+
+            <span>
+                for South African Businesses.
+            </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            Understand how your business collects, manages and uses
+            data, and identify areas where data quality, reporting
+            and decision-making can be improved.
+
+        </p>
+
+
+        <div class="hero-buttons">
 
 
             <a href="../index.html#contact"
-                class="btn">
+               class="btn primary">
 
-                Get Started
+                Start a Conversation →
 
             </a>
 
-        </nav>
 
-    </header>
+            <a href="#what-we-check"
+               class="btn secondary">
+
+                See What We Check ↓
+
+            </a>
 
 
+        </div>
 
-    <!-- =========================================
-         BREADCRUMB
-    ========================================= -->
-
-    <div class="breadcrumb">
-
-        <a href="../index.html">Home</a>
-
-        <span>›</span>
-
-        <a href="data-analytics.html">Data Analytics</a>
-
-        <span>›</span>
-
-        <span>Data Health Check</span>
 
     </div>
 
 
 
-    <!-- =========================================
-         HERO
-    ========================================= -->
+    <!-- Analytics Visual -->
 
-    <section class="hero">
+    <div class="analytics-card">
 
-        <div class="hero-content">
 
-            <div class="eyebrow">
+        <p>
+            DATA HEALTH CHECK
+        </p>
 
-                DATA QUALITY • BUSINESS INSIGHT
 
+        <div class="chart">
+
+
+            <div class="bar bar1"></div>
+
+            <div class="bar bar2"></div>
+
+            <div class="bar bar3"></div>
+
+            <div class="bar bar4"></div>
+
+            <div class="bar bar5"></div>
+
+            <div class="bar bar6"></div>
+
+
+        </div>
+
+
+        <div class="analytics-footer">
+
+            <span>
+                DATA
+            </span>
+
+            <strong>
+                HEALTH
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     INTRODUCTION
+========================================== -->
+
+<section class="section">
+
+
+    <div class="service-page-intro">
+
+
+        <p class="eyebrow">
+            DATA HEALTH CHECK SOUTH AFRICA
+        </p>
+
+
+        <h2>
+            Understand the health of your business data.
+        </h2>
+
+
+        <p>
+
+            Businesses collect information every day through sales,
+            customers, operations, finance, marketing and other
+            business activities.
+
+        </p>
+
+
+        <p>
+
+            The challenge is knowing whether that information is
+            accurate, organised, accessible and useful for
+            business reporting and decision-making.
+
+        </p>
+
+
+        <p>
+
+            Momentum Analytics helps businesses review how their
+            data is collected, managed and used, while identifying
+            areas where data quality and reporting can potentially
+            be improved.
+
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     WHAT WE CHECK
+========================================== -->
+
+<section id="what-we-check"
+         class="section">
+
+
+    <div class="section-title">
+
+
+        <p class="eyebrow">
+            WHAT WE CHECK
+        </p>
+
+
+        <h2>
+            Review the way your business handles data.
+        </h2>
+
+
+        <p class="section-intro">
+
+            A Data Health Check focuses on the areas that can affect
+            the quality and usefulness of your business information.
+
+        </p>
+
+
+    </div>
+
+
+
+    <div class="service-grid">
+
+
+        <!-- Data Quality -->
+
+        <div class="service-card">
+
+
+            <div class="service-icon">
+                DQ
             </div>
 
 
-            <h1>
-
-                Data Health Check
-
-                <span>
-                    for South African Businesses.
-                </span>
-
-            </h1>
+            <h3>
+                Data Quality
+            </h3>
 
 
             <p>
 
-                Understand how your business collects, manages and uses
-                data, and identify areas where data quality, reporting
-                and decision-making can be improved.
+                Review potential issues such as incomplete,
+                inconsistent, duplicated or outdated information.
 
             </p>
 
 
-            <div class="hero-buttons">
-
-                <a href="../index.html#contact"
-                    class="btn">
-
-                    Request a Data Health Check
-
-                </a>
-
-
-                <a href="#what-we-check"
-                    class="btn btn-secondary">
-
-                    See What We Check
-
-                </a>
-
-            </div>
-
-
-            <div class="analytics-card">
-
-                <div class="analytics-card-header">
-
-                    <span>DATA HEALTH</span>
-
-                    <span>CHECK</span>
-
-                </div>
-
-
-                <div class="analytics-bars">
-
-                    <div style="height:45%;"></div>
-
-                    <div style="height:65%;"></div>
-
-                    <div style="height:55%;"></div>
-
-                    <div style="height:80%;"></div>
-
-                    <div style="height:70%;"></div>
-
-                    <div style="height:90%;"></div>
-
-                </div>
-
-            </div>
-
         </div>
 
-    </section>
 
 
+        <!-- Data Collection -->
 
-    <!-- =========================================
-         INTRODUCTION
-    ========================================= -->
+        <div class="service-card">
 
-    <section class="section">
 
-        <div class="health-intro">
-
-            <div class="section-title">
-
-                <span>UNDERSTAND YOUR DATA</span>
-
-                <h2>
-
-                    Is Your Business Data Working for You?
-
-                </h2>
-
+            <div class="service-icon">
+                DC
             </div>
+
+
+            <h3>
+                Data Collection
+            </h3>
 
 
             <p>
 
-                Businesses collect data every day through sales,
-                customers, financial records, operations, marketing
-                and other business activities.
+                Review how information enters your business and
+                whether the data being collected supports useful
+                reporting and analysis.
 
             </p>
+
+
+        </div>
+
+
+
+        <!-- Data Management -->
+
+        <div class="service-card">
+
+
+            <div class="service-icon">
+                DM
+            </div>
+
+
+            <h3>
+                Data Management
+            </h3>
 
 
             <p>
 
-                But having data is not the same as having useful,
-                reliable data. A Data Health Check helps identify
-                potential gaps in the way your business collects,
-                stores, manages and uses information.
+                Look at how business information is stored,
+                organised and maintained across your processes.
 
             </p>
+
+
+        </div>
+
+
+
+        <!-- Reporting -->
+
+        <div class="service-card">
+
+
+            <div class="service-icon">
+                RP
+            </div>
+
+
+            <h3>
+                Business Reporting
+            </h3>
 
 
             <p>
 
-                Momentum Analytics can help you understand where
-                improvements can be made and where better use of
-                your data could support business reporting and
-                decision-making.
+                Review how your business turns information into
+                reports and whether those reports provide useful
+                business insight.
 
             </p>
 
+
         </div>
 
-    </section>
 
 
+        <!-- Analysis -->
 
-    <!-- =========================================
-         WHAT WE CHECK
-    ========================================= -->
+        <div class="service-card">
 
-    <section class="section" id="what-we-check">
 
-        <div class="section-title">
+            <div class="service-icon">
+                AN
+            </div>
 
-            <span>WHAT WE CHECK</span>
 
-            <h2>
+            <h3>
+                Data Analysis
+            </h3>
 
-                What Does a Data Health Check Look At?
-
-            </h2>
 
             <p>
 
-                The review focuses on the way your business handles
-                and uses data.
+                Identify opportunities to analyse business
+                information more effectively and uncover useful
+                trends and patterns.
 
             </p>
 
-        </div>
-
-
-        <div class="health-grid">
-
-
-            <div class="health-card">
-
-                <div class="health-icon">
-                    DQ
-                </div>
-
-                <h3>
-
-                    Data Quality
-
-                </h3>
-
-                <p>
-
-                    Identify potential issues such as incomplete,
-                    inconsistent, duplicated or outdated business data.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="health-card">
-
-                <div class="health-icon">
-                    DC
-                </div>
-
-                <h3>
-
-                    Data Collection
-
-                </h3>
-
-                <p>
-
-                    Review how information enters your business and
-                    whether the data being collected supports useful
-                    reporting and analysis.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="health-card">
-
-                <div class="health-icon">
-                    DM
-                </div>
-
-                <h3>
-
-                    Data Management
-
-                </h3>
-
-                <p>
-
-                    Look at how business information is stored,
-                    organised and maintained across your processes.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="health-card">
-
-                <div class="health-icon">
-                    RP
-                </div>
-
-                <h3>
-
-                    Reporting
-
-                </h3>
-
-                <p>
-
-                    Review how your business turns data into reports
-                    and whether those reports provide useful insight.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="health-card">
-
-                <div class="health-icon">
-                    BI
-                </div>
-
-                <h3>
-
-                    Business Intelligence
-
-                </h3>
-
-                <p>
-
-                    Identify opportunities to use business data more
-                    effectively for understanding performance and trends.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="health-card">
-
-                <div class="health-icon">
-                    IM
-                </div>
-
-                <h3>
-
-                    Improvement Opportunities
-
-                </h3>
-
-                <p>
-
-                    Highlight areas where changes to data processes,
-                    reporting or analysis could improve the way
-                    information is used.
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         WHAT WE CHECK LIST
-    ========================================= -->
-
-    <section class="section">
-
-        <div class="section-title">
-
-            <span>DATA REVIEW</span>
-
-            <h2>
-
-                Areas We Can Review
-
-            </h2>
 
         </div>
 
 
-        <ul class="check-list">
 
-            <li>
-                How your business currently collects data
-            </li>
+        <!-- Improvement -->
 
-            <li>
-                Where your business data is stored
-            </li>
-
-            <li>
-                How information moves between different processes
-            </li>
-
-            <li>
-                Potential data quality problems
-            </li>
-
-            <li>
-                How your business currently reports information
-            </li>
-
-            <li>
-                Whether your reports provide useful business insight
-            </li>
-
-            <li>
-                Opportunities to improve data analysis
-            </li>
-
-            <li>
-                Opportunities to improve business decision-making through data
-            </li>
-
-        </ul>
-
-    </section>
+        <div class="service-card">
 
 
+            <div class="service-icon">
+                IM
+            </div>
 
-    <!-- =========================================
-         HOW IT WORKS
-    ========================================= -->
 
-    <section class="section" id="how-it-works">
+            <h3>
+                Improvement Opportunities
+            </h3>
 
-        <div class="section-title">
-
-            <span>HOW IT WORKS</span>
-
-            <h2>
-
-                Our Data Health Check Process
-
-            </h2>
 
             <p>
 
-                A straightforward process designed to help you
-                understand your current data environment.
+                Identify areas where changes to data processes,
+                reporting or analysis could improve the way
+                information is used.
 
             </p>
 
-        </div>
-
-
-        <div class="health-process">
-
-
-            <div class="process-card">
-
-                <div class="process-number">
-                    01
-                </div>
-
-                <h3>
-                    Understand
-                </h3>
-
-                <p>
-
-                    We learn how your business currently collects,
-                    stores and uses data.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="process-card">
-
-                <div class="process-number">
-                    02
-                </div>
-
-                <h3>
-                    Review
-                </h3>
-
-                <p>
-
-                    We identify potential data quality, reporting
-                    and process issues.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="process-card">
-
-                <div class="process-number">
-                    03
-                </div>
-
-                <h3>
-                    Identify
-                </h3>
-
-                <p>
-
-                    We highlight areas where your business could
-                    improve its use of data.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="process-card">
-
-                <div class="process-number">
-                    04
-                </div>
-
-                <h3>
-                    Recommend
-                </h3>
-
-                <p>
-
-                    We discuss practical opportunities for improving
-                    your data and reporting processes.
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         WHAT YOU RECEIVE
-    ========================================= -->
-
-    <section class="section">
-
-        <div class="section-title">
-
-            <span>THE OUTCOME</span>
-
-            <h2>
-
-                What You Can Gain From a Data Health Check
-
-            </h2>
 
         </div>
 
 
-        <div class="health-results">
+    </div>
 
 
-            <div class="result-card">
+</section>
 
-                <h3>
 
-                    Better Understanding of Your Data
 
-                </h3>
+<!-- ==========================================
+     AREAS WE REVIEW
+========================================== -->
 
-                <p>
+<section class="section">
 
-                    Gain a clearer view of how data is currently
-                    being collected, managed and used within your
-                    business.
 
-                </p>
+    <div class="section-title">
 
+
+        <p class="eyebrow">
+            DATA REVIEW
+        </p>
+
+
+        <h2>
+            Areas we can review.
+        </h2>
+
+
+        <p class="section-intro">
+
+            The review is focused on understanding your current
+            business data environment.
+
+        </p>
+
+
+    </div>
+
+
+
+    <div class="why-grid">
+
+
+        <div class="why-card">
+
+
+            <div class="why-number">
+                01
             </div>
 
 
+            <h3>
+                Data Collection
+            </h3>
 
-            <div class="result-card">
-
-                <h3>
-
-                    Identify Data Quality Issues
-
-                </h3>
-
-                <p>
-
-                    Understand where potential data quality
-                    problems may be affecting your reporting
-                    and analysis.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="result-card">
-
-                <h3>
-
-                    Improve Business Reporting
-
-                </h3>
-
-                <p>
-
-                    Identify opportunities to make your reporting
-                    more useful and informative.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="result-card">
-
-                <h3>
-
-                    Discover Opportunities
-
-                </h3>
-
-                <p>
-
-                    Identify practical ways your business could
-                    make better use of the data it already has.
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         WHO IT IS FOR
-    ========================================= -->
-
-    <section class="section">
-
-        <div class="section-title">
-
-            <span>WHO IT'S FOR</span>
-
-            <h2>
-
-                Businesses That Could Benefit
-
-            </h2>
 
             <p>
 
-                A Data Health Check can be useful for businesses
-                that want a clearer understanding of their data.
+                How your business currently collects information
+                from customers, sales, operations and other
+                business activities.
 
             </p>
 
-        </div>
-
-
-        <div class="client-grid">
-
-
-            <div class="client-card">
-
-                <h3>
-                    Small Businesses
-                </h3>
-
-                <p>
-
-                    Understand whether your current data processes
-                    are supporting your growing business.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="client-card">
-
-                <h3>
-                    Medium Businesses
-                </h3>
-
-                <p>
-
-                    Review larger volumes of business information
-                    and identify opportunities to improve reporting.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="client-card">
-
-                <h3>
-                    Property Businesses
-                </h3>
-
-                <p>
-
-                    Improve the way customer, property and
-                    operational information is organised and reported.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="client-card">
-
-                <h3>
-                    Professional Services
-                </h3>
-
-                <p>
-
-                    Understand how business and customer information
-                    can be used more effectively.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="client-card">
-
-                <h3>
-                    Growing Companies
-                </h3>
-
-                <p>
-
-                    Review data processes before increasing
-                    complexity as the business grows.
-
-                </p>
-
-            </div>
-
-
-
-            <div class="client-card">
-
-                <h3>
-                    Data-Driven Businesses
-                </h3>
-
-                <p>
-
-                    Identify opportunities to improve analysis,
-                    dashboards and business reporting.
-
-                </p>
-
-            </div>
-
 
         </div>
 
-    </section>
 
 
-
-    <!-- =========================================
-         CTA
-    ========================================= -->
-
-    <section class="section">
-
-        <div class="why-us">
-
-            <div class="why-grid">
+        <div class="why-card">
 
 
-                <div class="why-card">
-
-                    <span>
-                        READY TO UNDERSTAND YOUR DATA?
-                    </span>
-
-                    <h2>
-
-                        Start With a Data Health Check.
-
-                    </h2>
-
-                    <p>
-
-                        If you're unsure whether your business data
-                        is being used effectively, a Data Health Check
-                        can help you understand where you currently
-                        stand and where improvements may be possible.
-
-                    </p>
-
-
-                    <a href="../index.html#contact"
-                        class="btn">
-
-                        Request a Consultation
-
-                    </a>
-
-                </div>
-
-
+            <div class="why-number">
+                02
             </div>
 
-        </div>
 
-    </section>
+            <h3>
+                Data Storage
+            </h3>
 
-
-
-    <!-- =========================================
-         FAQ
-    ========================================= -->
-
-    <section class="section" id="faq">
-
-        <div class="section-title">
-
-            <span>FAQ</span>
-
-            <h2>
-
-                Data Health Check Frequently Asked Questions
-
-            </h2>
-
-        </div>
-
-
-        <div class="faq">
-
-
-            <details>
-
-                <summary>
-                    What is a Data Health Check?
-                </summary>
-
-                <p>
-
-                    A Data Health Check is a review of how a business
-                    collects, manages and uses data, with the aim of
-                    identifying potential data quality, reporting
-                    and process improvements.
-
-                </p>
-
-            </details>
-
-
-
-            <details>
-
-                <summary>
-                    Why is data quality important?
-                </summary>
-
-                <p>
-
-                    Poor-quality or inconsistent data can make it
-                    more difficult to produce useful reports and
-                    understand business performance.
-
-                </p>
-
-            </details>
-
-
-
-            <details>
-
-                <summary>
-                    Does my business need large amounts of data?
-                </summary>
-
-                <p>
-
-                    No. Businesses of different sizes can benefit
-                    from understanding how their data is collected,
-                    managed and used.
-
-                </p>
-
-            </details>
-
-
-
-            <details>
-
-                <summary>
-                    Can Momentum Analytics help after the check?
-                </summary>
-
-                <p>
-
-                    Yes. Depending on the needs identified during
-                    the review, Momentum Analytics can provide
-                    services such as data analysis, business
-                    intelligence, Power BI, SQL, Excel and
-                    business reporting.
-
-                </p>
-
-            </details>
-
-
-
-            <details>
-
-                <summary>
-                    How do I get started?
-                </summary>
-
-                <p>
-
-                    Contact Momentum Analytics to discuss your
-                    business and request a Data Health Check.
-
-                </p>
-
-            </details>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         CONTACT CTA
-    ========================================= -->
-
-    <section class="contact" id="contact">
-
-        <div class="section-title">
-
-            <span>GET STARTED</span>
-
-            <h2>
-
-                Let's Talk About Your Data
-
-            </h2>
 
             <p>
 
-                Tell us about your business and where you would
-                like to improve your use of data.
+                Where business information is stored and how
+                different sources of information are organised.
 
             </p>
 
-        </div>
-
-
-        <div class="contact-card">
-
-
-            <div>
-
-                <h3>
-                    Request a Consultation
-                </h3>
-
-                <p>
-
-                    Speak with Momentum Analytics about your
-                    business data, reporting and analytics needs.
-
-                </p>
-
-                <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAbWngcNUODVRSzFQTEZISlQ4MjRUTUg4UUhLSzVNRi4u"
-                    target="_blank"
-                    class="btn">
-
-                    Request a Consultation
-
-                </a>
-
-            </div>
-
-
-            <div class="contact-details">
-
-                <p>
-                    <strong>Email:</strong>
-                    info@momentumanalytics.co.za
-                </p>
-
-                <p>
-                    <strong>Phone:</strong>
-                    +27 69 259 9107
-                </p>
-
-                <p>
-                    <strong>Location:</strong>
-                    South Africa
-                </p>
-
-                <p>
-
-                    <strong>WhatsApp:</strong>
-
-                    <a href="https://wa.me/27692599107"
-                        target="_blank">
-
-                        Message us on WhatsApp
-
-                    </a>
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         FOOTER
-    ========================================= -->
-
-    <footer class="site-footer">
-
-        <div class="footer-content">
-
-
-            <div class="footer-brand">
-
-                <h3>
-                    Momentum Analytics
-                </h3>
-
-                <p>
-
-                    Turning business data into meaningful
-                    insights and better decisions.
-
-                </p>
-
-            </div>
-
-
-            <div class="footer-links">
-
-                <h4>
-                    Quick Links
-                </h4>
-
-                <a href="../index.html">
-                    Home
-                </a>
-
-                <a href="../index.html#about">
-                    About
-                </a>
-
-                <a href="../index.html#services">
-                    Services
-                </a>
-
-                <a href="../index.html#contact">
-                    Contact
-                </a>
-
-            </div>
-
-
-            <div class="footer-contact">
-
-                <h4>
-                    Contact
-                </h4>
-
-                <p>
-                    info@momentumanalytics.co.za
-                </p>
-
-                <p>
-                    +27 69 259 9107
-                </p>
-
-                <p>
-                    South Africa
-                </p>
-
-            </div>
-
 
         </div>
 
 
-        <div class="footer-bottom">
+
+        <div class="why-card">
+
+
+            <div class="why-number">
+                03
+            </div>
+
+
+            <h3>
+                Data Quality
+            </h3>
+
 
             <p>
 
-                © 2026 Momentum Analytics.
-                All rights reserved.
+                Potential missing, duplicated, inconsistent or
+                outdated information that could affect reporting.
 
             </p>
 
+
         </div>
 
-    </footer>
+
+
+        <div class="why-card">
+
+
+            <div class="why-number">
+                04
+            </div>
+
+
+            <h3>
+                Business Reporting
+            </h3>
+
+
+            <p>
+
+                How your business currently turns available
+                information into reports and useful business
+                information.
+
+            </p>
+
+
+        </div>
 
 
 
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================= -->
-
-    <script src="../script.js"></script>
+        <div class="why-card">
 
 
-    <!-- =========================================
-         STRUCTURED DATA
-    ========================================= -->
+            <div class="why-number">
+                05
+            </div>
 
-    <script type="application/ld+json">
 
-    {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
+            <h3>
+                Data Analysis
+            </h3>
 
-        "name": "Momentum Analytics",
 
-        "url": "https://www.momentumanalytics.co.za/services/data-health-check.html",
+            <p>
 
-        "logo": "https://www.momentumanalytics.co.za/image/Momentum%20logo.jpg",
+                Opportunities to make better use of existing
+                information through analysis and visualisation.
 
-        "description": "Data Health Checks for South African businesses, helping businesses review data quality, data management and reporting.",
+            </p>
 
-        "email": "info@momentumanalytics.co.za",
 
-        "telephone": "+27692599107",
+        </div>
 
-        "areaServed": "South Africa",
 
-        "serviceType": [
-            "Data Health Check",
-            "Data Quality",
-            "Data Analytics",
-            "Business Reporting",
-            "Business Intelligence"
-        ]
-    }
 
-    </script>
+        <div class="why-card">
+
+
+            <div class="why-number">
+                06
+            </div>
+
+
+            <h3>
+                Decision Support
+            </h3>
+
+
+            <p>
+
+                Whether the information available to decision-makers
+                provides a useful view of business performance.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     HOW IT WORKS
+========================================== -->
+
+<section id="how-it-works"
+         class="section service-process">
+
+
+    <div class="section-title">
+
+
+        <p class="eyebrow">
+            HOW IT WORKS
+        </p>
+
+
+        <h2>
+            A practical Data Health Check process.
+        </h2>
+
+
+        <p class="section-intro">
+
+            We focus on understanding your business first before
+            identifying areas for improvement.
+
+        </p>
+
+
+    </div>
+
+
+
+    <div class="why-grid">
+
+
+        <!-- Step 01 -->
+
+        <div class="why-card process-card">
+
+
+            <div class="process-number">
+                STEP 01
+            </div>
+
+
+            <h3>
+                Understand
+            </h3>
+
+
+            <p>
+
+                We discuss your business, your processes and the
+                types of data your business currently uses.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- Step 02 -->
+
+        <div class="why-card process-card">
+
+
+            <div class="process-number">
+                STEP 02
+            </div>
+
+
+            <h3>
+                Assess
+            </h3>
+
+
+            <p>
+
+                We review the available information and identify
+                relevant data quality, reporting or management
+                requirements.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- Step 03 -->
+
+        <div class="why-card process-card">
+
+
+            <div class="process-number">
+                STEP 03
+            </div>
+
+
+            <h3>
+                Identify
+            </h3>
+
+
+            <p>
+
+                We highlight areas where your business could
+                improve its use and management of data.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- Step 04 -->
+
+        <div class="why-card process-card">
+
+
+            <div class="process-number">
+                STEP 04
+            </div>
+
+
+            <h3>
+                Recommend
+            </h3>
+
+
+            <p>
+
+                We discuss practical opportunities for improving
+                data quality, reporting and analysis.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     WHAT YOU CAN GAIN
+========================================== -->
+
+<section class="section">
+
+
+    <div class="section-title">
+
+
+        <p class="eyebrow">
+            THE OUTCOME
+        </p>
+
+
+        <h2>
+            What a Data Health Check can help you understand.
+        </h2>
+
+
+        <p class="section-intro">
+
+            The purpose is to give your business a clearer view
+            of its current data environment and potential areas
+            for improvement.
+
+        </p>
+
+
+    </div>
+
+
+
+    <div class="why-grid">
+
+
+        <div class="why-card">
+
+
+            <div class="why-number">
+                01
+            </div>
+
+
+            <h3>
+                Understand Your Data
+            </h3>
+
+
+            <p>
+
+                Gain a clearer view of how information is currently
+                collected, managed and used within your business.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="why-card">
+
+
+            <div class="why-number">
+                02
+            </div>
+
+
+            <h3>
+                Identify Data Issues
+            </h3>
+
+
+            <p>
+
+                Identify potential data quality problems that may
+                affect reporting and analysis.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="why-card">
+
+
+            <div class="why-number">
+                03
+            </div>
+
+
+            <h3>
+                Improve Reporting
+            </h3>
+
+
+            <p>
+
+                Identify opportunities to make business reporting
+                clearer and more useful.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="why-card">
+
+
+            <div class="why-number">
+                04
+            </div>
+
+
+            <h3>
+                Find Opportunities
+            </h3>
+
+
+            <p>
+
+                Discover practical opportunities to make better
+                use of the business data you already have.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     WHO WE HELP
+========================================== -->
+
+<section class="section">
+
+
+    <div class="section-title">
+
+
+        <p class="eyebrow">
+            WHO WE HELP
+        </p>
+
+
+        <h2>
+            Businesses that can benefit from a Data Health Check.
+        </h2>
+
+
+        <p class="section-intro">
+
+            Businesses of different sizes and industries can review
+            how effectively they are managing and using information.
+
+        </p>
+
+
+    </div>
+
+
+
+    <div class="client-grid">
+
+
+        <!-- Small & Medium Businesses -->
+
+        <div class="client-card">
+
+
+            <div class="client-icon">
+                SMB
+            </div>
+
+
+            <h3>
+                Small & Medium Businesses
+            </h3>
+
+
+            <p>
+
+                Review current data processes and identify
+                opportunities to improve reporting as the business
+                grows.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- Accounting & Finance -->
+
+        <div class="client-card">
+
+
+            <div class="client-icon">
+                AF
+            </div>
+
+
+            <h3>
+                Accounting & Finance
+            </h3>
+
+
+            <p>
+
+                Review financial and operational information and
+                identify opportunities for better reporting.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- Property -->
+
+        <div class="client-card">
+
+
+            <div class="client-icon">
+                PR
+            </div>
+
+
+            <h3>
+                Property Businesses
+            </h3>
+
+
+            <p>
+
+                Review customer, property and operational
+                information to identify potential reporting
+                improvements.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- Logistics -->
+
+        <div class="client-card">
+
+
+            <div class="client-icon">
+                LG
+            </div>
+
+
+            <h3>
+                Logistics & Fleet
+            </h3>
+
+
+            <p>
+
+                Review fleet, transport and operational information
+                and identify opportunities for better visibility.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- Professional Services -->
+
+        <div class="client-card">
+
+
+            <div class="client-icon">
+                PS
+            </div>
+
+
+            <h3>
+                Professional Services
+            </h3>
+
+
+            <p>
+
+                Review business and customer information to
+                understand opportunities for improved data use.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- Growing Businesses -->
+
+        <div class="client-card">
+
+
+            <div class="client-icon">
+                GB
+            </div>
+
+
+            <h3>
+                Growing Businesses
+            </h3>
+
+
+            <p>
+
+                Review existing data processes before increasing
+                the complexity of your business information
+                environment.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     DATA ANALYTICS CONNECTION
+========================================== -->
+
+<section class="section">
+
+
+    <div class="service-page-intro">
+
+
+        <p class="eyebrow">
+            FROM DATA HEALTH TO DATA INSIGHTS
+        </p>
+
+
+        <h2>
+            Your Data Health Check can be the starting point.
+        </h2>
+
+
+        <p>
+
+            Once you understand the current state of your business
+            data, the next step may be improving the way that
+            information is analysed and reported.
+
+        </p>
+
+
+        <p>
+
+            Momentum Analytics provides data analytics, business
+            intelligence, Power BI, SQL, Excel, Power Query,
+            data quality and business reporting services.
+
+        </p>
+
+
+        <a href="data-analytics.html"
+           class="btn primary">
+
+            Explore Data Analytics →
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     DATA HEALTH CHECK CTA
+========================================== -->
+
+<section class="why-us">
+
+
+    <div class="why-us-container data-cta">
+
+
+        <p class="eyebrow">
+            NOT SURE WHERE TO START?
+        </p>
+
+
+        <h2>
+            Start with a Data Health Check.
+        </h2>
+
+
+        <p>
+
+            A Data Health Check gives you an opportunity to discuss
+            how your business currently collects, manages and uses
+            data. We can identify areas that may benefit from better
+            organisation, reporting or analysis.
+
+        </p>
+
+
+        <a href="../index.html#contact"
+           class="btn primary">
+
+            Request a Consultation →
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     PORTFOLIO
+========================================== -->
+
+<section id="portfolio"
+         class="section">
+
+
+    <div class="section-title">
+
+
+        <p class="eyebrow">
+            OUR WORK
+        </p>
+
+
+        <h2>
+            See how Momentum Analytics applies data and digital solutions.
+        </h2>
+
+
+        <p class="section-intro">
+
+            Explore selected Momentum Analytics projects and
+            examples of our work across data analytics and
+            digital solutions.
+
+        </p>
+
+
+    </div>
+
+
+
+    <div class="client-grid">
+
+
+        <div class="client-card">
+
+
+            <div class="client-icon">
+                BI
+            </div>
+
+
+            <h3>
+                South African Labour Market Analysis
+            </h3>
+
+
+            <p>
+
+                A Power BI project focused on analysing South African
+                labour-market information and presenting insights
+                through interactive visualisations.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="client-card">
+
+
+            <div class="client-icon">
+                FL
+            </div>
+
+
+            <h3>
+                Trucking Operations Dashboard
+            </h3>
+
+
+            <p>
+
+                A business intelligence dashboard designed to
+                provide visibility into trucking and operational
+                information.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="client-card">
+
+
+            <div class="client-icon">
+                SQL
+            </div>
+
+
+            <h3>
+                Hospital Patient Management
+            </h3>
+
+
+            <p>
+
+                A SQL database project focused on structured
+                healthcare and patient-management information.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     FAQ
+========================================== -->
+
+<section id="faq"
+         class="section">
+
+
+    <div class="section-title">
+
+
+        <p class="eyebrow">
+            FAQ
+        </p>
+
+
+        <h2>
+            Data Health Check Frequently Asked Questions
+        </h2>
+
+
+    </div>
+
+
+
+    <div class="why-grid">
+
+
+        <!-- FAQ 01 -->
+
+        <div class="why-card">
+
+
+            <h3>
+                What is a Data Health Check?
+            </h3>
+
+
+            <p>
+
+                A Data Health Check is a review of how a business
+                collects, manages and uses data, with the aim of
+                identifying potential data quality, reporting and
+                process improvements.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- FAQ 02 -->
+
+        <div class="why-card">
+
+
+            <h3>
+                Why is data quality important?
+            </h3>
+
+
+            <p>
+
+                Poor-quality or inconsistent information can make
+                it more difficult to produce useful reports and
+                understand business performance.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- FAQ 03 -->
+
+        <div class="why-card">
+
+
+            <h3>
+                Does my business need a large amount of data?
+            </h3>
+
+
+            <p>
+
+                No. The appropriate approach depends on your
+                business requirements, the information available
+                and what you are trying to understand.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- FAQ 04 -->
+
+        <div class="why-card">
+
+
+            <h3>
+                Can Momentum Analytics help after the Data Health Check?
+            </h3>
+
+
+            <p>
+
+                Yes. Depending on the requirements identified,
+                Momentum Analytics provides services including
+                data analysis, business intelligence, Power BI,
+                SQL, Excel, Power Query and business reporting.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- FAQ 05 -->
+
+        <div class="why-card">
+
+
+            <h3>
+                Can you work with Excel data?
+            </h3>
+
+
+            <p>
+
+                Yes. Excel and Power Query are part of the
+                Momentum Analytics data services offering.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- FAQ 06 -->
+
+        <div class="why-card">
+
+
+            <h3>
+                How do I get started?
+            </h3>
+
+
+            <p>
+
+                Contact Momentum Analytics to discuss your
+                business requirements and request a consultation.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     CONTACT CTA
+========================================== -->
+
+<section class="section contact">
+
+
+    <div class="section-title">
+
+
+        <p class="eyebrow">
+            GET STARTED
+        </p>
+
+
+        <h2>
+            Let's talk about your business data.
+        </h2>
+
+
+        <p class="section-intro">
+
+            Tell us about your business and how you currently
+            collect, manage and use data.
+
+        </p>
+
+
+        <a
+            href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAbN8ushUM0xSN1hQTVhRWjdFRFRENFc0T0pFSFNVVy4u"
+            class="btn primary"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Request a Consultation →
+
+        </a>
+
+
+    </div>
+
+
+
+    <div class="contact-card">
+
+
+        <div class="contact-item">
+
+
+            <span class="contact-label">
+                EMAIL
+            </span>
+
+
+            <a href="mailto:info@momentumanalytics.co.za">
+
+                info@momentumanalytics.co.za
+
+            </a>
+
+
+        </div>
+
+
+
+        <div class="contact-item">
+
+
+            <span class="contact-label">
+                PHONE
+            </span>
+
+
+            <a href="tel:+27692599107">
+
+                +27 69 259 9107
+
+            </a>
+
+
+        </div>
+
+
+
+        <div class="contact-item">
+
+
+            <span class="contact-label">
+                LOCATION
+            </span>
+
+
+            <p>
+                South Africa
+            </p>
+
+
+        </div>
+
+
+
+        <div class="contact-buttons">
+
+
+            <a href="mailto:info@momentumanalytics.co.za"
+               class="btn primary">
+
+                Email Us →
+
+            </a>
+
+
+            <a href="https://wa.me/27692599107"
+               class="btn whatsapp"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                WhatsApp Us →
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer class="site-footer">
+
+
+    <div class="footer-container">
+
+
+        <div class="footer-brand">
+
+
+            <h3>
+                Momentum Analytics
+            </h3>
+
+
+            <p>
+                Turning Business Data into Better Decisions.
+            </p>
+
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+
+            <h4>
+                QUICK LINKS
+            </h4>
+
+
+            <a href="../index.html#home">
+                Home
+            </a>
+
+
+            <a href="../index.html#about">
+                About
+            </a>
+
+
+            <a href="../index.html#services">
+                Services
+            </a>
+
+
+            <a href="../index.html#portfolio">
+                Portfolio
+            </a>
+
+
+            <a href="../index.html#contact">
+                Contact
+            </a>
+
+
+        </div>
+
+
+
+        <div class="footer-contact">
+
+
+            <h4>
+                CONTACT
+            </h4>
+
+
+            <a href="mailto:info@momentumanalytics.co.za">
+
+                info@momentumanalytics.co.za
+
+            </a>
+
+
+            <a href="tel:+27692599107">
+
+                +27 69 259 9107
+
+            </a>
+
+
+            <p>
+                South Africa
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+
+        <p>
+            © 2026 Momentum Analytics. All rights reserved.
+        </p>
+
+
+        <p>
+            Data Analytics • Business Intelligence • Reporting
+        </p>
+
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- ==========================================
+     STRUCTURED DATA
+========================================== -->
+
+<script type="application/ld+json">
+
+{
+    "@context": "https://schema.org",
+
+    "@type": "ProfessionalService",
+
+    "name": "Momentum Analytics",
+
+    "url": "https://www.momentumanalytics.co.za/services/data-health-check.html",
+
+    "logo": "https://www.momentumanalytics.co.za/image/Momentum%20logo.jpg",
+
+    "description": "Momentum Analytics provides Data Health Checks, data analytics, business intelligence, Power BI, SQL, Excel, reporting and data quality solutions for businesses.",
+
+    "email": "info@momentumanalytics.co.za",
+
+    "telephone": "+27692599107",
+
+    "areaServed": {
+        "@type": "Country",
+        "name": "South Africa"
+    },
+
+    "serviceType": [
+        "Data Health Check",
+        "Data Quality",
+        "Data Analytics",
+        "Business Intelligence",
+        "Business Reporting"
+    ]
+
+}
+
+</script>
+
+
+
+<!-- Existing JavaScript -->
+
+<script src="../script.js"></script>
 
 
 </body>
