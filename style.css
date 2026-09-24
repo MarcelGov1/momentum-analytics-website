@@ -1396,3 +1396,17 @@ border-color: #b9d8ef;
     margin: 0 0 25px 0;
     max-width: 1000px;
 }
+/* ==========================================
+   LOCAL LOCATION SECTIONS
+   Durban / Umhlanga / Ballito
+========================================== */
+
+.local-location-section > .container {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-sizing: border-box;
+}
